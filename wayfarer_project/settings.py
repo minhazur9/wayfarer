@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from .secrets import *
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -122,6 +123,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = '/'
+
+LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
 # django_on_heroku.settings(locals())
