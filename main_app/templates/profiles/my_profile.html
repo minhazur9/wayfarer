@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+My Dashboard
+{% endblock %}
+
+{% block content %}
+
+<h1>{{request.user.username}}</h1>
+
+{% for post in posts %}
+<p>
+<a href="">{{ post.title }}</a>
+</p>
+{% endfor %}
+
+{% endblock content %}
