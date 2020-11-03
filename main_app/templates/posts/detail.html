@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Post
+{% endblock %}
+
+{% block content %}
+
+<div>
+    {{ post.title }}
+    {{ post.description }}
+    {{ post.photo }}
+    {{ post.city }}
+</div>
+
+{% endblock %}

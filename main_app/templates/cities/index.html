@@ -8,7 +8,7 @@ All Cities
 
 <div>
     {% for city in cities %}
-        <p>{{ city.city_name }}</p>
+        <a href="{% url 'city_detail' city.id %}">{{ city.city_name }}</a>
     {% endfor %}
 </div>
 

@@ -51,6 +51,28 @@ def edit_profile(request):
         return render(request, 'profiles/edit_profile.html', context)
 
 # Post routes
+def post_detail(request, post_id, city_id):
+    post = Post.objects.get(id=post_id)
+    city = City.objects.get(id=city_id)
+    return render(request, 'posts/detail.html', {'post': post})
+
+
+
+
+
+
+
+
+
+
+
+
+
 def city_index(request):
     cities = City.objects.all()
     return render(request, 'cities/index.html', {'cities': cities})
+
+def city_detail(request, city_id):
+    print(city_id, '--------------------------HERE')
+    city = City.objects.get(id=city_id)
+    return render(request, 'cities/detail.html', {'city': city})
