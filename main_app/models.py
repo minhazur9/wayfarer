@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=255, default="John Doe") 
+    full_name = models.CharField(max_length=255, null=True) 
     user_image = models.CharField(max_length=255)
     current_city = models.CharField(max_length=255)
     join_date = models.DateTimeField(auto_now_add=True)

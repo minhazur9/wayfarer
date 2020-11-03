@@ -58,21 +58,46 @@ def post_detail(request, post_id):
     return render(request, 'posts/detail.html', {'post': post})
 
 
+def edit_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+
+    if request.method == 'POST':
+        post_form = PostForm(request.POST, instance=post)
+        if post_form.is_valid():
+            updated_post = post_form.save()
+            return redirect('post_detail', updated_post.id)
+
+    else:
+        form = PostForm(instance=post)
+        context = {'form': form, 'post':post}
+        return render(request, 'posts/edit_post.html', context)
 
 
+def delete_post(request, post_id):
+    Post.objects.get(id=post_id).delete()
+
+    return redirect('my_profile')
 
 
-
-
-
-
-
-
-
+# City Routes
 def city_index(request):
     cities = City.objects.all()
     return render(request, 'cities/index.html', {'cities': cities})
 
 def city_detail(request, city_id):
-    city = City.objects.get(id=city_id)
-    return render(request, 'cities/detail.html', {'city': city})
+    user = User.objects.get(id = request.user.id)
+    city = City.objects.get(id = city_id)
+    posts = Post.objects.filter(city=city).order_by('-id')
+
+    if request.method == 'POST':
+        post_form = PostForm(request.POST)
+        if post_form.is_valid():
+            new_post = post_form.save()
+            new_post.user = request.user
+            new_post.city = city
+            new_post.save()
+
+            return render(request, 'cities/detail.html', {'city': city, 'posts': posts})
+    else:
+        form = PostForm()
+        return render(request, 'cities/detail.html', {'city': city, 'posts': posts, 'form': form})
