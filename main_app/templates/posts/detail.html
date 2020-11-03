@@ -11,7 +11,12 @@ My Post
     {{ post.description }}
     {{ post.photo }}
     <h2>{{ post.city }}</h2>
-<a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
+    <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
+
+    <form action="{% url 'delete_post' post.id %}" method="post">
+    {% csrf_token %}
+        <button type="submit" class="btn">Delete Post</button>
+    </form>
 </div>
 
 {% endblock %}
