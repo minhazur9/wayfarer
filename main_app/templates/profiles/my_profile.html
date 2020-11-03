@@ -4,13 +4,17 @@ My Dashboard
 {% endblock %}
 
 {% block content %}
+{% if request.user.current_city %}
+<p>{{ request.user.current_city }}</p>
+{% else %}
+<p>No Current City</p>
+{% endif %}
+<a class="btn" href="{% url 'edit_profile' %}">Edit Profile</a>
 
 <h1>{{request.user.username}}</h1>
-
 {% for post in posts %}
 <p>
 <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
-
 </p>
 {% endfor %}
 

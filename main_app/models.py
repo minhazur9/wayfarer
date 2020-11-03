@@ -11,7 +11,7 @@ class Profile(models.Model):
     join_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.full_name
+        return self.user.username
 
 class City(models.Model):
     city_name = models.CharField(max_length=255)
