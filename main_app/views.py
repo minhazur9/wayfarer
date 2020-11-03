@@ -87,7 +87,7 @@ def city_index(request):
 def city_detail(request, city_id):
     user = User.objects.get(id = request.user.id)
     city = City.objects.get(id = city_id)
-    posts = Post.objects.filter(city=city)
+    posts = Post.objects.filter(city=city).order_by('-id')
 
     if request.method == 'POST':
         post_form = PostForm(request.POST)

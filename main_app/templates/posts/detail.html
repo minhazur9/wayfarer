@@ -13,9 +13,10 @@ My Post
     <h2>{{ post.city }}</h2>
     <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
 
-    <form action="{% url 'delete_post' post.id %}" method="post">
+    <button class="confirm-delete">Delete Post</button>
+    <form action="{% url 'delete_post' post.id %}" class="hidden delete-form" method="post">
     {% csrf_token %}
-        <button type="submit" class="btn">Delete Post</button>
+        <button type="submit" class="btn">Click to Confirm Deletion</button>
     </form>
 </div>
 
