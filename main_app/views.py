@@ -60,20 +60,25 @@ def post_detail(request, post_id):
 
 
 
-
-
-
-
-
-
-
-
 # City Routes
 def city_index(request):
     cities = City.objects.all()
     return render(request, 'cities/index.html', {'cities': cities})
 
 def city_detail(request, city_id):
-    city = City.objects.get(id=city_id)
+    user = User.objects.get(id = request.user.id)
+    city = City.objects.get(id = city_id)
     posts = Post.objects.filter(city=city)
-    return render(request, 'cities/detail.html', {'city': city, 'posts': posts})
+
+    if request.method == 'POST':
+        post_form = PostForm(request.POST)
+        if post_form.is_valid():
+            new_post = post_form.save()
+            new_post.user = request.user
+            new_post.city = city
+            new_post.save()
+
+            return render(request, 'cities/detail.html', {'city': city, 'posts': posts})
+    else:
+        form = PostForm()
+        return render(request, 'cities/detail.html', {'city': city, 'posts': posts, 'form': form})
