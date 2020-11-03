@@ -38,7 +38,7 @@ def edit_profile(request):
         profile_form = ProfileForm(request.POST, instance=profile)
         if profile_form.is_valid():
             updated_profile = profile_form.save()
-            return redirect('my_profile', updated_profile.id)
+            return redirect('my_profile')
     else:
         form = ProfileForm(instance=profile)
         context = {'form': form, 'profile': profile}
