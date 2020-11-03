@@ -2,6 +2,16 @@
 {% block title %}
 My Dashboard
 {% endblock %}
+
 {% block content %}
+
 <h1>{{request.user.username}}</h1>
+
+{% for post in posts %}
+<p>
+<a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+
+</p>
+{% endfor %}
+
 {% endblock content %}
