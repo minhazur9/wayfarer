@@ -10,11 +10,17 @@ class Profile(models.Model):
     current_city = models.CharField(max_length=255)
     join_date = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.user
+
 class City(models.Model):
     city_name = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     state_province = models.CharField(max_length=255)
     city_image = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.city_name
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
@@ -23,7 +29,11 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     city = models.ManyToManyField(City)
 
+    def __str__(self):
+        return self.title
+
 class Comment(models.Model):
     content = models.TextField(max_length=500)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+

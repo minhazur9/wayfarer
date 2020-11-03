@@ -9,7 +9,8 @@ My Dashboard
 
 {% for post in posts %}
 <p>
-<a href="">{{ post.title }}</a>
+<a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+
 </p>
 {% endfor %}
 
