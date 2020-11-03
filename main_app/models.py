@@ -1,11 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 # Create your models here.
 
 class Profile(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=255, default="John Doe") 
     user_image = models.CharField(max_length=255)
     current_city = models.CharField(max_length=255)
+    join_date = models.DateTimeField(auto_now_add=True)
 
 class City(models.Model):
     city_name = models.CharField(max_length=255)
