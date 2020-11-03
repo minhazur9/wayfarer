@@ -8,6 +8,7 @@
 
 <div>
     <a href="{% url 'city_detail' city.id %}">{{ city.city_name }}</a>
+    <img src="{{city.city_image}}" alt="image of {{city.city_name}}">
 </div>
-
+{% comment %} onerror="this.src='imagefound.gif';" {% endcomment %}
 {% endblock %}
