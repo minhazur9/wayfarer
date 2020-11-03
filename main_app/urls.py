@@ -6,5 +6,6 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name="signup"),
     path('profiles/<str:username>/', views.profile_detail, name="profile_detail"),
     path('dashboard/', views.my_profile, name="my_profile"),
-    path('dashboard/edit/', views.edit_profile, name="edit_profile")
+    path('dashboard/edit/', views.edit_profile, name="edit_profile"),
+    path('cities/', views.city_index, name="city_index"),
 ]

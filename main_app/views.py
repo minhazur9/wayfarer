@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import *
 
-
+# Static routes
 def home(request):
     return render(request, 'home.html')
 
@@ -24,6 +24,7 @@ def signup(request):
         context = {'form': form, 'error_message': error_message}
         return render(request, 'registration/signup.html', context)
 
+# Profile routes
 def profile_detail(request, username):
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profiles/detail.html', {'profile': profile})
@@ -49,4 +50,7 @@ def edit_profile(request):
         context = {'form': form, 'profile': profile}
         return render(request, 'profiles/edit_profile.html', context)
 
-
+# Post routes
+def city_index(request):
+    cities = City.objects.all()
+    return render(request, 'cities/index.html', {'cities': cities})
