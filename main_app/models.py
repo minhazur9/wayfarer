@@ -11,7 +11,7 @@ class Profile(models.Model):
     join_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
 class City(models.Model):
     city_name = models.CharField(max_length=255)
@@ -27,7 +27,7 @@ class Post(models.Model):
     description = models.TextField(max_length=255)
     photo = models.CharField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    city = models.ManyToManyField(City)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title

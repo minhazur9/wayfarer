@@ -17,7 +17,7 @@ def signup(request):
             user = form.save()
             login(request, user)
             Profile.objects.create(user=user)
-            return redirect('home')
+            return redirect('my_profile')
     else:
         error_message = 'Invalid sign up = try again'
         form = UserCreationForm()
@@ -25,8 +25,8 @@ def signup(request):
         return render(request, 'registration/signup.html', context)
 
 # Profile routes
-def profile_detail(request, username):
-    profile = Profile.objects.get(user=request.user)
+def profile_detail(request, user_id):
+    profile = Profile.objects.get(user=user_id)
     return render(request, 'profiles/detail.html', {'profile': profile})
 
 def my_profile(request):
