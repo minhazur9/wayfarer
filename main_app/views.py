@@ -58,6 +58,21 @@ def post_detail(request, post_id):
     return render(request, 'posts/detail.html', {'post': post})
 
 
+def edit_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+
+    if request.method == 'POST':
+        post_form = PostForm(request.POST, instance=post)
+        if post_form.is_valid():
+            updated_post = post_form.save()
+            return redirect('post_detail', updated_post.id)
+
+    else:
+        form = PostForm(instance=post)
+        context = {'form': form, 'post':post}
+        return render(request, 'posts/edit_post.html', context)
+
+
 
 
 # City Routes
