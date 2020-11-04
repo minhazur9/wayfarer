@@ -101,8 +101,8 @@ def city_detail(request, city_id):
             new_post.user = request.user
             new_post.city = city
             new_post.save()
-            messages.success(request, 'Successful post!')
-            return render(request, 'cities/detail.html', {'city': city, 'posts': posts})
+            messages.success(request, f'Successfully created post titled: {new_post.title}!')
+            return redirect('city_detail', city_id)
     else:
         form = PostForm()
         return render(request, 'cities/detail.html', {'city': city, 'posts': posts, 'form': form})
