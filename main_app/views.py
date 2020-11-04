@@ -4,6 +4,7 @@ from .forms import *
 from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 from .models import *
 
 # Static routes
@@ -30,6 +31,7 @@ def profile_detail(request, user_id):
     profile = Profile.objects.get(user=user_id)
     return render(request, 'profiles/detail.html', {'profile': profile})
 
+@login_required
 def my_profile(request):
     my_profile = User.objects.get(username=request.user.username)
     posts = Post.objects.filter(user=request.user)
@@ -40,6 +42,7 @@ def my_profile(request):
     }
     return render(request,'profiles/my_profile.html', context)
 
+@login_required
 def edit_profile(request):
     profile = Profile.objects.get(user_id=request.user.id)
     if request.method == 'POST':
@@ -58,7 +61,7 @@ def post_detail(request, post_id):
     print(post.__dict__, '-----------------------HERE')
     return render(request, 'posts/detail.html', {'post': post})
 
-
+@login_required
 def edit_post(request, post_id):
     post = Post.objects.get(id=post_id)
 
@@ -73,7 +76,7 @@ def edit_post(request, post_id):
         context = {'form': form, 'post':post}
         return render(request, 'posts/edit_post.html', context)
 
-
+@login_required
 def delete_post(request, post_id):
     Post.objects.get(id=post_id).delete()
 
@@ -85,6 +88,7 @@ def city_index(request):
     cities = City.objects.all()
     return render(request, 'cities/index.html', {'cities': cities})
 
+@login_required
 def city_detail(request, city_id):
     user = User.objects.get(id = request.user.id)
     city = City.objects.get(id = city_id)
