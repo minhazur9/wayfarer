@@ -104,7 +104,7 @@ def city_detail(request, city_id):
     if request.method == 'POST':
         post_form = PostForm(request.POST)
         if post_form.is_valid():
-            new_post = post_form.save()
+            new_post = post_form.save(commit=False)
             new_post.user = request.user
             new_post.city = city
             new_post.save()
