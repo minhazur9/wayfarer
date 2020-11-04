@@ -15,8 +15,7 @@
     <title>Wayfarer - {% block title %} {% endblock  %}</title>
 </head>
 <body>
-    <main>
-    <nav>
+<nav>
     <ul>
     <li><a href="{% url 'home' %}">Home</a></li>
     {% if user.is_authenticated %}
@@ -28,6 +27,8 @@
     {% endif %}
     </ul>
     </nav>
+    <main class="container">
+    
     {% block content %}
         
     {% endblock content %}

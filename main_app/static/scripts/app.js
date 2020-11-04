@@ -1,6 +1,13 @@
 const confirmDelete = document.querySelector('.confirm-delete');
 const deleteForm = document.querySelector('.delete-form');
 
+//---------------------------------------------------
+//                     MATERIALIZE INPUT ENABLER                
+//---------------------------------------------------
+
+M.FormSelect.init(id_user)
+M.FormSelect.init(id_city)
+
 
 confirmDelete.addEventListener('click' ,  () => {
     const input =  prompt('Are you sure you want to delete this post?');
