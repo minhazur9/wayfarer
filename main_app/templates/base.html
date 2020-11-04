@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% comment %} <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> {% endcomment %}
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -19,12 +19,13 @@
     <ul>
     <li><a href="{% url 'home' %}">Home</a></li>
     {% if user.is_authenticated %}
-            {% comment %} <li><a href="{% url 'profile_detail' %}">My Profile</a></li> {% endcomment %}
+            <li><a href="{% url 'my_profile' %}">{{request.user.username}}</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
     {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
     {% endif %}
+            <li><a href="{% url 'city_index' %}">All Cities</a></li>
     </ul>
     </nav>
     <main class="container">

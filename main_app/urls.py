@@ -5,7 +5,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     #Profile URLs
     path('accounts/signup/', views.signup, name="signup"),
-    path('profiles/<int:user_id>/', views.profile_detail, name="profile_detail"),
+    path('profiles/<str:username>/', views.profile_detail, name="profile_detail"),
     path('dashboard/', views.my_profile, name="my_profile"),
     path('dashboard/edit/', views.edit_profile, name="edit_profile"),
     #City URLs
