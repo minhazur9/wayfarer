@@ -5,7 +5,13 @@
 {% endblock %}
 
 {% block content %}
-
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
 <div>
     <a href="{% url 'city_detail' city.id %}">{{ city.city_name }}</a>
     <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class="container sm">

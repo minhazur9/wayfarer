@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import *
 from django.contrib.auth import login
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .models import *
 
@@ -96,7 +97,7 @@ def city_detail(request, city_id):
             new_post.user = request.user
             new_post.city = city
             new_post.save()
-
+            messages.success(request, 'Successful post!')
             return render(request, 'cities/detail.html', {'city': city, 'posts': posts})
     else:
         form = PostForm()
