@@ -75,4 +75,5 @@ def city_index(request):
 
 def city_detail(request, city_id):
     city = City.objects.get(id=city_id)
+    print(city.__dict__)
     return render(request, 'cities/detail.html', {'city': city})
