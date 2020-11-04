@@ -27,8 +27,8 @@ def signup(request):
         return render(request, 'registration/signup.html', context)
 
 # Profile routes
-def profile_detail(request, user_id):
-    profile = Profile.objects.get(user=user_id)
+def profile_detail(request, username):
+    profile = Profile.objects.get(user=request.user)
     return render(request, 'profiles/detail.html', {'profile': profile})
 
 @login_required
@@ -64,18 +64,19 @@ def post_detail(request, post_id):
 @login_required
 def edit_post(request, post_id):
     post = Post.objects.get(id=post_id)
+    if request.user == post.user:
+        if request.method == 'POST':
+            post_form = PostForm(request.POST, instance=post)
+            if post_form.is_valid():
+                updated_post = post_form.save()
+                return redirect('post_detail', updated_post.id)
 
-    if request.method == 'POST':
-        post_form = PostForm(request.POST, instance=post)
-        if post_form.is_valid():
-            updated_post = post_form.save()
-            return redirect('post_detail', updated_post.id)
-
+        else:
+            form = PostForm(instance=post)
+            context = {'form': form, 'post':post}
+            return render(request, 'posts/edit_post.html', context)
     else:
-        form = PostForm(instance=post)
-        context = {'form': form, 'post':post}
-        return render(request, 'posts/edit_post.html', context)
-
+        return redirect('city_index')
 @login_required
 def delete_post(request, post_id):
     Post.objects.get(id=post_id).delete()
