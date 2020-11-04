@@ -1,5 +1,7 @@
 const confirmDelete = document.querySelector('.confirm-delete');
-const deleteForm = document.querySelector('.delete-form')
+const deleteForm = document.querySelector('.delete-form');
+
+
 confirmDelete.addEventListener('click' ,  () => {
     const input =  prompt('Are you sure you want to delete this post?');
     if (input === 'yes') {
