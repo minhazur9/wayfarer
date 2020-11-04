@@ -5,13 +5,19 @@ My Post
 {% endblock %}
 
 {% block content %}
-
+<h1>{{post.user.username}}</h1>
 <div>
     {{ post.title }}
     {{ post.description }}
     {{ post.photo }}
     <h2>{{ post.city }}</h2>
-    
+    <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
+
+    <button class="confirm-delete">Delete Post</button>
+    <form action="{% url 'delete_post' post.id %}" class="hidden delete-form" method="post">
+    {% csrf_token %}
+        <button type="submit" class="btn">Click to Confirm Deletion</button>
+    </form>
 </div>
 
 {% endblock %}
