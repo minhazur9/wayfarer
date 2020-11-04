@@ -77,11 +77,17 @@ def edit_post(request, post_id):
             return render(request, 'posts/edit_post.html', context)
     else:
         return redirect('city_index')
+
 @login_required
 def delete_post(request, post_id):
-    Post.objects.get(id=post_id).delete()
-
-    return redirect('my_profile')
+    post = Post.objects.get(id=post_id)
+    if request.user == post.user:
+        Post.objects.get(id=post_id).delete()
+        
+        return redirect('my_profile')
+    else:
+        # flash message error
+        return redirect('my_profile')
 
 
 # City Routes
