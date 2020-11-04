@@ -28,7 +28,8 @@ def signup(request):
 
 # Profile routes
 def profile_detail(request, username):
-    profile = Profile.objects.get(user=request.user)
+    user = User.objects.get(username=username)
+    profile = Profile.objects.get(user=user)
     return render(request, 'profiles/detail.html', {'profile': profile})
 
 @login_required

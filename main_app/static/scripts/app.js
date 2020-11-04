@@ -1,4 +1,3 @@
-
 const confirmDelete = document.getElementById('confirm-delete');
 const deleteForm = document.querySelector('.delete-form');
 const newPostBtn = document.querySelector('.new-post-btn');
