@@ -1,5 +1,7 @@
 const confirmDelete = document.querySelector('.confirm-delete');
 const deleteForm = document.querySelector('.delete-form');
+const newPostBtn = document.querySelector('.new-post-btn');
+const newPost = document.querySelector('.new-post');
 
 //---------------------------------------------------
 //                     MATERIALIZE INPUT ENABLER                
@@ -7,6 +9,11 @@ const deleteForm = document.querySelector('.delete-form');
 
 M.FormSelect.init(id_user)
 M.FormSelect.init(id_city)
+
+
+newPostBtn.addEventListener('click', () => {
+    newPost.classList.toggle('hidden');
+})
 
 
 confirmDelete.addEventListener('click' ,  () => {
