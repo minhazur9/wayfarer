@@ -83,7 +83,6 @@ main {
 
 .all-cities-container a {
     color: black;
-
 }
 
 .row .col.s12.current-city-container {
@@ -156,9 +155,13 @@ main {
     padding: 0 10px 0 10px;
 }
 
+
 .post-description-text {
     overflow-wrap: break-word;
+}
 
+.AAA {
+    color: var(--primary-color) !important;
 }
 
 .card-stacked {
