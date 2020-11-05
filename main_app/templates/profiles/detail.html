@@ -3,14 +3,60 @@
 {% block title %}
 {{ profile.full_name }}
 {% endblock %}
-
 {% block content %}
-<h1>{{ profile.user }}</h1>
-<div>
-    <p>
-        pic
-        {{ profile.current_city }}
-        {{ profile.join_date }}
-    </p>
+<div class="container">
+
+<div class="col s12 m7">
+
+    <div class="card horizontal">
+      <div class="card-stacked">
+        
+        <h1>{{profile.user.username}}</h1>
+        <div class="card-action">
+        <div class="dashboard-card-grid card-content">
+        <div class="dashboard-card-left">
+            {% if profile.full_name %}
+            <p>Full Name: {{profile.full_name}}</p>
+            {% else %}
+            <p>Full Name: Not Specified</p>
+            {% endif %}
+            {% if profile.current_city %}
+            <p>Current City: {{ profile.current_city }}</p>
+            {% else %}
+            <p>Current City: Not Specified</p>
+            {% endif %}
+            <p>Joined: {{ profile.join_date }}</p>
+            
+        </div>
+          <div class="dashboard-img-container">
+          <img class="dashboard-prof-img" src="{{ profile.user_image }}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
+          </div>
+          
+        </div>
+        </div>
+        <div class="card-action">
+        <h4>Recent Posts</h4>
+        <div class="dashboard-posts">
+        {% for post in posts %}
+        <div>
+        Post Titled: 
+        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a> 
+        In: 
+        <a href="{% url 'city_detail' post.city.id %}">{{ post.city }}</a>
+        </div>
+        
+        {% endfor %}
+        </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
 </div>
 {% endblock content %}

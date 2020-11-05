@@ -7,11 +7,77 @@
 body {
     background-color: #F9F9F9;
     font-family: 'Open Sans' , sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+main{
+    flex: 1 0 auto;
 }
 
 .hidden {
     display: none;
 }
+
+/* ---------------------------------------------------
+                     LANDING                
+--------------------------------------------------- */
+.carousel{
+    height: 55vh;
+    width: 100%;
+    background-color: blue;
+    text-align: center;
+    color: white;
+}
+.landing-grid{
+    background-color: red;
+    text-align: center;
+    height: 35vh;
+    display: flex;
+}
+.landing-grid-item{
+    margin: 1rem 4rem;
+}
+
+/* ---------------------------------------------------
+                     USER SHOW                
+--------------------------------------------------- */
+
+
+/* ---------------------------------------------------
+                MY PROFILE / DASHBOARD                
+--------------------------------------------------- */
+.dashboard-card-grid{
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+}
+.card-stacked h1{
+    text-align: center;
+}
+.dashboard-card-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dashboard-prof-img{
+    height: 300px;
+    width: 300px;
+}
+.card-action h4{
+    text-align: center;
+}
+.dashboard-posts{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+.dashboard-img-container a{
+    width: 300px;
+}
+
 
 /* p select {
     display: block;

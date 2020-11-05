@@ -6,6 +6,15 @@ const newPost = document.querySelector('.new-post');
 //---------------------------------------------------
 //                     MATERIALIZE INPUT ENABLER                
 //---------------------------------------------------
+const instance = M.Carousel.init({
+    fullWidth: true,
+    indicators: true
+  });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const elems = document.querySelectorAll('.carousel');
+    const instances = M.Carousel.init(elems, options);
+  });
 
 
 if(newPostBtn){

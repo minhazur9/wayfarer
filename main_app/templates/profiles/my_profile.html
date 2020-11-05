@@ -3,20 +3,65 @@
 My Dashboard
 {% endblock %}
 
+
+
+
 {% block content %}
-{% if request.user.profile.current_city %}
-<p>{{ request.user.profile.current_city }}</p>
-{% else %}
-<p>No Current City</p>
-{% endif %}
-<a class="btn" href="{% url 'edit_profile' %}">Edit Profile</a>
+<div class="container">
 
-<h1>{{request.user.username}}</h1>
-<p>Joined: {{ request.user.profile.join_date }}</p>
-{% for post in posts %}
-<p>
-<a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
-</p>
-{% endfor %}
+<div class="col s12 m7">
 
+    <div class="card horizontal">
+      <div class="card-stacked">
+        
+        <h1>Your Dashboard</h1>
+        <div class="card-action">
+        <div class="dashboard-card-grid card-content">
+        <div class="dashboard-card-left">
+            <p>Username: {{request.user.username}}</p>
+            {% if request.user.profile.full_name %}
+            <p>Full Name: {{request.user.profile.full_name}}</p>
+            {% else %}
+            <p>Full Name: Not Specified</p>
+            {% endif %}
+            {% if request.user.profile.current_city %}
+            <p>Current City: {{ request.user.profile.current_city }}</p>
+            {% else %}
+            <p>Current City: Not Specified</p>
+            {% endif %}
+            <p>Joined: {{ request.user.profile.join_date }}</p>
+            
+        </div>
+          <div class="dashboard-img-container">
+          <img class="dashboard-prof-img" src="{{ request.user.profile.user_image }}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
+          <a class="btn" href="{% url 'edit_profile' %}">Edit Profile</a>
+          </div>
+          
+        </div>
+        </div>
+        <div class="card-action">
+        <h4>Recent Posts</h4>
+        <div class="dashboard-posts">
+        {% for post in posts %}
+        <div>
+        Post Titled: 
+        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a> 
+        In: 
+        <a href="{% url 'city_detail' post.city.id %}">{{ post.city }}</a>
+        </div>
+        
+        {% endfor %}
+        </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
 {% endblock content %}
