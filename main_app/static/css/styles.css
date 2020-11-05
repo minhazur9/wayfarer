@@ -91,6 +91,7 @@ main {
 
 .post-card-container {
     padding: 10px;
+    overflow: hidden;
 }
 
 .post-card-container p {

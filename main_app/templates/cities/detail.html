@@ -10,10 +10,12 @@
         <h3>Cities</h3>
         {% for city in cities %}
         <div class="all-cities-cards">
+        <a href="{% url 'city_detail' city.id %}">
             <div class="card horizontal row">
                 <img class="card-image col l5 all-cities-image" src="{{city.city_image}}" alt="" class="container sm">
-                <h3 class="card-content col l7"><a href="{% url 'city_detail' city.id %}">{{city.city_name}}</a></h3>
+                <h3 class="card-content col l7">{{city.city_name}}</h3>
             </div>
+        </a>
         </div>
         {% endfor %}
     </div>
