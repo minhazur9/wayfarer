@@ -10,6 +10,7 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title' , 'description' , 'photo', 'user' , 'city']
+        exclude = ['user', 'city']
 
 
 

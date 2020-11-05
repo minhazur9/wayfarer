@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block title %}
 My Post
@@ -11,13 +13,16 @@ My Post
     {{ post.description }}
     {{ post.photo }}
     <h2>{{ post.city }}</h2>
+    {% if request.user == post.user %}
     <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
-
-    <button class="confirm-delete">Delete Post</button>
+    
+    <button id="confirm-delete">Delete Post</button>
     <form action="{% url 'delete_post' post.id %}" class="hidden delete-form" method="post">
     {% csrf_token %}
         <button type="submit" class="btn">Click to Confirm Deletion</button>
     </form>
+    {% endif %}
 </div>
+
 
 {% endblock %}

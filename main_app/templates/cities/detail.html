@@ -5,16 +5,31 @@
 {% endblock %}
 
 {% block content %}
-
+<div>
+    {% for city in cities %}
+    <div>
+        {{city.city_name}}
+        <img src="{{city.city_image}}" alt="" class="container sm">
+    </div>
+    {% endfor %}
+</div>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
 <div>
     <a href="{% url 'city_detail' city.id %}">{{ city.city_name }}</a>
     <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class="container sm">
 </div>
-<button href="" class="btn">New Post</button>
-<div class="">
+<button href="" class="btn new-post-btn">New Post</button>
+<div class="new-post">
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
+        
         <button type="submit" class="btn">Submit Post</button>
     </form>
 </div>
@@ -24,4 +39,8 @@
 {% endfor %}
 </div>
 {% comment %} onerror="this.src='imagefound.gif';" {% endcomment %}
+<script>
+    M.FormSelect.init(id_user)
+    M.FormSelect.init(id_city)
+</script>
 {% endblock %}
