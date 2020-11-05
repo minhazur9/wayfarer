@@ -23,6 +23,8 @@ main {
 
 .city-detail-container {
     margin: 1rem;
+    min-height: 100%;
+    flex-wrap: wrap;
 }
 
 .cities-detail-buttons {
@@ -30,24 +32,27 @@ main {
 }
 
 .all-cities-container {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border: 5px solid #F9F9F9;
+    height: 100% !important;
 }
 
-.row .col.s8.current-city-container {
+.row .col.s12.current-city-container {
     background-color: var(--secondary-color);
-    margin-left: .5rem !important;
-    width: 66% !important;
 }
 
 .current-city-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    border: 5px solid #F9F9F9;
 }
 
 .open-create-post {
     align-self: flex-end;
     margin-top: .25rem;
-    margin-right: 2.5rem;
+    margin-bottom: .5rem;
+    margin-right: 1rem;
 }
 
 .current-city-header {
@@ -55,9 +60,39 @@ main {
     justify-content: space-between;
     flex-wrap: wrap;
     text-align: center;
+    margin-right: 0;
 }
 
 .current-city-image {
-    margin-right: 0;
+    margin-right: 1rem;
+    padding-left: 20px;
     align-self: flex-end;
+}
+
+.current-city-title {
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
+.current-city-subheading {
+    margin: 0;
+    font-size: 20px;
+    color: #9E9E9E;
+}
+
+.post-title-card {
+    font-size: 2rem;
+    margin-top: 0 !important;
+}
+
+.post-card-container {
+    padding: 10px;
+}
+
+.post-card-container p {
+    color: #9E9E9E;
+}
+
+.post-card-container a{
+    background-color: var(--accent-color) !important;
 }

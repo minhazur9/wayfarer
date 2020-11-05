@@ -6,7 +6,7 @@
 
 {% block content %}
 <section class="city-detail-container row">
-    <div class="all-cities-container col s4">
+    <div class="all-cities-container col s12 m12 l4">
         <h3>Cities</h3>
         {% for city in cities %}
         <div>
@@ -16,8 +16,8 @@
         {% endfor %}
     </div>
 
-    <article class="col s8 current-city-container">
-        <div>
+    <article class="col s12 m12 l8 current-city-container row">
+        <div class="">
             {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -26,13 +26,38 @@
             </ul>
             {% endif %}
             <figure class="current-city-header">
-                <h3 class="current-city-title">{{ city.city_name }}</h3>
-                <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class="container sm current-city-image">
+                <div>
+                    <h3 class="current-city-title">{{ city.city_name }}</h3>
+                    <h4 class="current-city-subheading">{{city.country}}</h4>
+                </div>
+                <div class="container current-city-image">
+                    <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class=" current-city-image">
+                </div>
             </figure>
         </div>
-        {% comment %} <button href="" class="btn new-post-btn ">New Post</button> {% endcomment %}
 
         <a class="btn-floating btn-large waves-effect waves-light open-create-post modal-trigger" href="#modal2"><i class="material-icons cities-detail-buttons">add</i></a>
+            {% for post in posts %}
+            <div class="col s12">
+                <div class="card horizontal post-card-container">
+                    <div class="card-image">
+                        <img src="https://lorempixel.com/200/200/nature/6">
+                        <!-- CHANGE THIS TO POST IMG -->
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <h4 class="post-title-card">{{post.title}}</h4>
+                            <p>{{post.description}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'post_detail' post.id %}" class="waves-effect waves-light btn">View Post</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+    </article>
         <div class="new-post modal" id="modal2">
             <form method="POST" class="modal-content">
                 {% csrf_token %}
@@ -41,13 +66,6 @@
                 <button type="submit" class="btn cities-detail-buttons modal-close waves-effect waves-green">Submit Post</button>
             </form>
         </div>
-        <div>
-            {% for post in posts %}
-            <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
-            {% endfor %}
-        </div>
-
-    </article>
 
 </section>
 {% comment %} onerror="this.src='imagefound.gif';" {% endcomment %}
