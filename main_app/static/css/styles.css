@@ -7,10 +7,8 @@
 body {
     background-color: #F9F9F9;
     font-family: 'Open Sans' , sans-serif;
-
     display: flex;
     min-height: 100vh;
-    color: var(--primary-color);
     flex-direction: column;
     box-sizing: border-box;
 }
