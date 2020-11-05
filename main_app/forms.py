@@ -12,6 +12,10 @@ class PostForm(forms.ModelForm):
         fields = ['title' , 'description' , 'photo', 'user' , 'city']
         exclude = ['user', 'city']
 
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']
 
 
 

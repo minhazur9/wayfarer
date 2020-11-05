@@ -61,11 +61,25 @@ def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
     comments = Comment.objects.filter(post=post_id)
     print(post.__dict__, '-----------------------HERE')
-    context = {
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.user = request.user
+            new_comment.post = post
+            new_comment.save()
+            return redirect('post_detail',post_id)
+        else:
+            print(comment_form.user, comment_form.post, '-----------------------HERE')
+            return redirect('post_detail',post_id)
+    else: 
+        comment_form = CommentForm()
+        context = {
         'post': post,
-        'comments': comments
+        'comments': comments,
+        'form': comment_form
     }
-    return render(request, 'posts/detail.html', context)
+        return render(request, 'posts/detail.html', context)
 
 @login_required
 def edit_post(request, post_id):

@@ -23,9 +23,9 @@ My Post
     </form>
     {% endif %}
      <button class="add-comment btn">Add Comment</button>
-    <form action="" method="post" class="hidden comment-form">
+    <form action="" method="POST" class="hidden comment-form">
     {% csrf_token %}
-       <textarea style="border:2px solid black ;" name="comment-content" id="comment-content" cols="30" rows="10"></textarea>
+       {{form.as_p}}
        <button type="submit" class="btn">Submit</button>
     </form>
     {% for comment in comments %}
