@@ -19,7 +19,7 @@ def signup(request):
             user = form.save()
             login(request, user)
             Profile.objects.create(user=user)
-            return redirect('my_profile')
+            return redirect('home')
     else:
         error_message = 'Invalid sign up = try again'
         form = UserCreationForm()
@@ -117,7 +117,10 @@ def delete_post(request, post_id):
         return redirect('my_profile')
 
 
-# City Routes
+
+
+
+
 def city_index(request):
     cities = City.objects.all()
     return render(request, 'cities/index.html', {'cities': cities})

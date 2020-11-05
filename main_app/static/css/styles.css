@@ -9,8 +9,30 @@ body {
     font-family: 'Open Sans' , sans-serif;
     display: flex;
     min-height: 100vh;
+    color: var(--primary-color);
     flex-direction: column;
     box-sizing: border-box;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.btn {
+    background-color: var(--accent-color);
+}
+
+.nav {
+    background-color: var(--secondary-color);
+}
+
+.page-footer {
+    background-color: var(--secondary-color);
+    padding-top: 2vh;
+}
+.right {
+    padding-bottom: 2vh;
+    padding-right: 2vh;
 }
 main{
     flex: 1 0 auto;
