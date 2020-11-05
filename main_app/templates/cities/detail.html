@@ -5,41 +5,79 @@
 {% endblock %}
 
 {% block content %}
-<div>
-    {% for city in cities %}
-    <div>
-        {{city.city_name}}
-        <img src="{{city.city_image}}" alt="" class="container sm">
+<section class="city-detail-container row">
+    <div class="all-cities-container col s12 m12 l5">
+        <h3>Cities</h3>
+        {% for city in cities %}
+        <div class="all-cities-cards">
+        <a href="{% url 'city_detail' city.id %}">
+            <div class="card horizontal row">
+                <img class="card-image col l5 all-cities-image" src="{{city.city_image}}" alt="" class="container sm">
+                <h3 class="card-content col l7">{{city.city_name}}</h3>
+            </div>
+        </a>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-    {% endfor %}
-</ul>
-{% endif %}
-<div>
-    <a href="{% url 'city_detail' city.id %}">{{ city.city_name }}</a>
-    <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class="container sm">
-</div>
-<button href="" class="btn new-post-btn">New Post</button>
-<div class="new-post">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        
-        <button type="submit" class="btn">Submit Post</button>
-    </form>
-</div>
-<div>
-{% for post in posts %}
-    <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
-{% endfor %}
-</div>
+
+    <article class="col s12 m12 l7 current-city-container row">
+        <div class="">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <figure class="current-city-header">
+                <div>
+                    <h3 class="current-city-title">{{ city.city_name }}</h3>
+                    <h4 class="current-city-subheading">{{city.country}}</h4>
+                </div>
+                <div class="container current-city-image">
+                    <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class=" current-city-image">
+                </div>
+            </figure>
+        </div>
+        <a class="btn-floating btn-large waves-effect waves-light open-create-post modal-trigger" href="#modal2"><i class="material-icons cities-detail-buttons">add</i></a>
+
+            {% for post in posts %}
+            <div class="col s12">
+                <div class="card horizontal post-card-container">
+                    <div class="card-image">
+                        <img src="https://lorempixel.com/200/200/nature/6">
+                        <!-- CHANGE THIS TO POST IMG -->
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <h4 class="post-title-card">{{post.title}}</h4>
+                            <div class="post-description-text">
+                                <p class="truncate">{{post.description}}</p>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'post_detail' post.id %}" class="waves-effect waves-light btn">View Post</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+    </article>
+        <div class="new-post modal" id="modal2">
+            <form method="POST" class="modal-content">
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+                <button type="submit" class="btn cities-detail-buttons modal-close waves-effect waves-green">Submit Post</button>
+            </form>
+        </div>
+
+</section>
 {% comment %} onerror="this.src='imagefound.gif';" {% endcomment %}
 <script>
+    // Materialize methods
+    M.Modal.init(modal2);
     M.FormSelect.init(id_user)
     M.FormSelect.init(id_city)
 </script>

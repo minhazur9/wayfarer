@@ -2,8 +2,8 @@ const confirmDelete = document.getElementById('confirm-delete');
 const deleteForm = document.querySelector('.delete-form');
 const newPostBtn = document.querySelector('.new-post-btn');
 const newPost = document.querySelector('.new-post');
-
 const track = document.querySelector('.carousel__track');
+    if(track){
 const slides = Array.from(track.children);
 const nextButton = document.querySelector('.carousel-right');
 const prevButton = document.querySelector('.carousel-left') ;
@@ -11,13 +11,13 @@ const dotsNav = document.querySelector('.carousel_nav');
 const dots = Array.from(dotsNav.children);
 
 const slideWidth = slides[0].getBoundingClientRect().width;
-
+}
 
 //---------------------------------------------------
 //                     CAROUSEL                
 //---------------------------------------------------
 
-if(slides){
+if(track){
     const slideWidth = slides[0].getBoundingClientRect().width;
     const setSlidePosition = (slide, index) => {
         slide.style.left = slideWidth * index + 'px';
@@ -117,3 +117,23 @@ if(confirmDelete){
         }
     });
 }
+
+
+const addComment = document.querySelector('.add-comment');
+const commentForm = document.querySelector('.comment-form');
+const cancelComment = document.querySelector('.cancel-comment')
+
+if(addComment) {
+addComment.addEventListener('click', () => {
+    addComment.classList.add('hidden');
+    commentForm.classList.remove('hidden');
+})
+
+cancelComment.addEventListener('click', () => {
+    commentForm.querySelector('textarea').value = "";
+    commentForm.classList.add('hidden');
+    addComment.classList.remove('hidden');
+})
+}
+
+

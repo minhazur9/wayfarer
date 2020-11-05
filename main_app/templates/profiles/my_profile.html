@@ -30,7 +30,12 @@ My Dashboard
             <p>Current City: Not Specified</p>
             {% endif %}
             <p>Joined: {{ request.user.profile.join_date }}</p>
-            
+            created {{comments.count}} 
+            {% if comments.count == 1 %}
+        comment
+        {% else %}
+        comments
+        {% endif %}
         </div>
           <div class="dashboard-img-container">
           <img class="dashboard-prof-img" src="{{ request.user.profile.user_image }}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">

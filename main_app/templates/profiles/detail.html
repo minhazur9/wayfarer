@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
-
 {% block title %}
 {{ profile.full_name }}
 {% endblock %}
 {% block content %}
 <div class="container">
-
 <div class="col s12 m7">
-
     <div class="card horizontal">
       <div class="card-stacked">
         
@@ -28,11 +25,18 @@
             <p>Joined: {{ profile.join_date }}</p>
             created {{comments.count}} 
         {% if comments.count == 1 %}
+<<<<<<< HEAD
         <p>comment</p> 
         {% else %}
         <p>comments</p>
         {% endif %}
 
+=======
+        comment
+        {% else %}
+        comments
+        {% endif %}
+>>>>>>> 455156c523cbbc62920affa5c811e0b91431d313
             
         </div>
           <div class="dashboard-img-container">
@@ -60,11 +64,5 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
 </div>
 {% endblock content %}

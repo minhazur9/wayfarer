@@ -7,17 +7,137 @@
 body {
     background-color: #F9F9F9;
     font-family: 'Open Sans' , sans-serif;
+
     display: flex;
     min-height: 100vh;
+    color: var(--primary-color);
     flex-direction: column;
     box-sizing: border-box;
 }
-main{
+
+main {
     flex: 1 0 auto;
+
 }
 
+.btn {
+    background-color: var(--accent-color);
+}
+
+.nav {
+    background-color: var(--secondary-color);
+}
+
+.page-footer {
+    background-color: var(--secondary-color);
+    padding-top: 2vh;
+}
+.right {
+    padding-bottom: 2vh;
+    padding-right: 2vh;
+}
 .hidden {
     display: none;
+}
+
+.city-detail-container {
+    margin: 1rem;
+    /* height: 100vh; */
+    flex-wrap: wrap;
+}
+
+.cities-detail-buttons {
+    background-color: var(--accent-color) !important;
+}
+
+.all-cities-container {
+    background-color: var(--secondary-color);
+    border: 5px solid #F9F9F9;
+    /* object-fit: cover; */
+    height: 100%;
+}
+
+.all-cities-container a {
+    color: black;
+
+}
+
+.row .col.s12.current-city-container {
+    background-color: var(--secondary-color);
+}
+
+.current-city-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid #F9F9F9;
+}
+
+.open-create-post {
+    align-self: flex-end;
+    margin-top: .25rem;
+    margin-bottom: .5rem;
+    margin-right: 1rem;
+}
+
+.current-city-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-right: 0;
+}
+
+.current-city-image {
+    margin-right: 1rem;
+    padding-left: 20px;
+    align-self: flex-end;
+}
+
+.current-city-title {
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
+.current-city-subheading {
+    margin: 0;
+    font-size: 20px;
+    color: #9E9E9E;
+}
+
+.post-title-card {
+    font-size: 2rem;
+    margin-top: 0 !important;
+}
+
+.post-card-container {
+    padding: 10px;
+    overflow: hidden;
+}
+
+.post-card-container p {
+    color: #9E9E9E;
+}
+
+.post-card-container a{
+    background-color: var(--accent-color) !important;
+}
+
+.all-cities-image {
+    padding: 10px !important;
+}
+
+.all-cities-cards {
+    padding: 0 10px 0 10px;
+}
+
+.post-description-text {
+    overflow-wrap: break-word;
+
+}
+
+.card-stacked {
+    overflow: auto !important;
 }
 
 /* ---------------------------------------------------
@@ -147,3 +267,4 @@ main{
 /* p select {
     display: block;
 } */
+
