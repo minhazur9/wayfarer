@@ -26,3 +26,11 @@ if(confirmDelete){
         }
     });
 }
+
+
+const addComment = document.querySelector('.add-comment');
+const commentForm = document.querySelector('.comment-form');
+
+addComment.addEventListener('click', () => {
+    commentForm.classList.toggle('hidden');
+})
