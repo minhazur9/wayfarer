@@ -59,8 +59,13 @@ def edit_profile(request):
 # Post routes
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
+    comments = Comment.objects.filter(post=post_id)
     print(post.__dict__, '-----------------------HERE')
-    return render(request, 'posts/detail.html', {'post': post})
+    context = {
+        'post': post,
+        'comments': comments
+    }
+    return render(request, 'posts/detail.html', context)
 
 @login_required
 def edit_post(request, post_id):
