@@ -16,24 +16,34 @@
     <title>Wayfarer - {% block title %} {% endblock  %}</title>
 </head>
 <body>
+
 <nav>
-    <ul>
-    <li><a href="{% url 'home' %}">Home</a></li>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
     {% if user.is_authenticated %}
-            <li><a href="{% url 'my_profile' %}">{{request.user.username}}</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
+        <li><a href="{% url 'my_profile' %}">{{request.user.username}}</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
     {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
+        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+        <li><a href="{% url 'login' %}">Log In</a></li>
     {% endif %}
-            <li><a href="{% url 'city_index' %}">All Cities</a></li>
-    </ul>
-    </nav>
+        <li><a href="{% url 'city_index' %}">All Cities</a></li>
+        </ul>
+    </div>
+</nav>
+
     <main>
     
     {% block content %}
         
     {% endblock content %}
     </main>
+
+
+
+
+
 </body>
+
 </html>
