@@ -28,6 +28,13 @@ main {
 .cities-detail-buttons {
     background-color: var(--accent-color) !important;
 }
-/* .all-cities-container {
 
-} */
+.all-cities-container {
+    background-color: var(--primary-color);
+}
+
+.row .col.s8.current-city-container {
+    background-color: var(--secondary-color);
+    margin-left: .5rem !important;
+    width: 65% !important;
+}
