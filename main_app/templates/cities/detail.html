@@ -7,13 +7,15 @@
 {% block content %}
 <section class="city-detail-container row">
     <div class="all-cities-container col s4">
+        <h3>Cities</h3>
         {% for city in cities %}
         <div>
-            <h3>{{city.city_name}}</h3>
+            <h3><a href="{% url 'city_detail' city.id %}">{{city.city_name}}</a></h3>
             <img src="{{city.city_image}}" alt="" class="container sm">
         </div>
         {% endfor %}
     </div>
+
     <article class="col s8">
         <div>
             {% if messages %}
@@ -23,16 +25,18 @@
                 {% endfor %}
             </ul>
             {% endif %}
-            <a href="{% url 'city_detail' city.id %}">{{ city.city_name }}</a>
+            <h3>{{ city.city_name }}</h3>
             <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class="container sm">
+        <a class="btn-floating btn-large waves-effect waves-light "><i class="material-icons cities-detail-buttons">add</i></a>
         </div>
-        <button href="" class="btn new-post-btn">New Post</button>
+        {% comment %} <button href="" class="btn new-post-btn ">New Post</button> {% endcomment %}
+
         <div class="new-post">
             <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
                 
-                <button type="submit" class="btn">Submit Post</button>
+                <button type="submit" class="btn cities-detail-buttons">Submit Post</button>
             </form>
         </div>
         <div>
@@ -41,6 +45,7 @@
             {% endfor %}
         </div>
     </article>
+
 </section>
 {% comment %} onerror="this.src='imagefound.gif';" {% endcomment %}
 <script>

@@ -25,6 +25,9 @@ main {
     margin: 1rem;
 }
 
+.cities-detail-buttons {
+    background-color: var(--accent-color) !important;
+}
 /* .all-cities-container {
 
 } */
