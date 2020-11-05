@@ -42,8 +42,12 @@ main {
 
 .city-detail-container {
     margin: 1rem;
-    /* height: 100vh; */
     flex-wrap: wrap;
+    display: flex;
+}
+
+.city-detail-container h3 {
+    color: black;
 }
 
 .cities-detail-buttons {
@@ -53,8 +57,8 @@ main {
 .all-cities-container {
     background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
-    /* object-fit: cover; */
-    height: 100%;
+    border-bottom: 24px solid #f9f9f9;
+    flex: 1;
 }
 
 .all-cities-container a {
@@ -71,6 +75,7 @@ main {
     flex-direction: column;
     align-items: center;
     border: 5px solid #F9F9F9;
+    flex: 1;
 }
 
 .open-create-post {

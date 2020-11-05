@@ -6,6 +6,7 @@
 
 {% block content %}
 <section class="city-detail-container row">
+
     <div class="all-cities-container col s12 m12 l5">
         <h3>Cities</h3>
         {% for city in cities %}
@@ -78,7 +79,12 @@
 <script>
     // Materialize methods
     M.Modal.init(modal2);
+        const allCities = document.querySelector('.all-cities-container');
+        const currentCity = document.querySelector('.current-city-container');
+        allCities.style.height = currentCity.style.height;
+
     M.FormSelect.init(id_user)
     M.FormSelect.init(id_city)
+
 </script>
 {% endblock %}
