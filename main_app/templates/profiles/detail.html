@@ -26,6 +26,13 @@
             <p>Current City: Not Specified</p>
             {% endif %}
             <p>Joined: {{ profile.join_date }}</p>
+            created {{comments.count}} 
+        {% if comments.count == 1 %}
+        <p>comment</p> 
+        {% else %}
+        <p>comments</p>
+        {% endif %}
+
             
         </div>
           <div class="dashboard-img-container">
@@ -47,6 +54,7 @@
         
         {% endfor %}
         </div>
+        
           
         </div>
       </div>
