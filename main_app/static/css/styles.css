@@ -99,6 +99,7 @@ main{
     height: 35vh;
     display: flex;
     margin-top: 3rem;
+    
 }
 .landing-grid-item{
     margin: .5rem 4rem;
