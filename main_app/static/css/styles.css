@@ -1,5 +1,12 @@
+:root {
+    --primary-color: #F0DE87;
+    --secondary-color: #D1E3DD;
+    --accent-color: #00E08E;
+}
+
 body {
     background-color: #F9F9F9;
+    font-family: 'Open Sans' , sans-serif;
 }
 
 .hidden {
