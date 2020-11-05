@@ -5,6 +5,14 @@
 {% endblock %}
 
 {% block content %}
+<div>
+    {% for city in cities %}
+    <div>
+        {{city.city_name}}
+        <img src="{{city.city_image}}" alt="" class="container sm">
+    </div>
+    {% endfor %}
+</div>
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}

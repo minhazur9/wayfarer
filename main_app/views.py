@@ -100,6 +100,7 @@ def city_index(request):
 def city_detail(request, city_id):
     user = User.objects.get(id = request.user.id)
     city = City.objects.get(id = city_id)
+    cities = City.objects.all()
     posts = Post.objects.filter(city=city).order_by('-id')
 
     if request.method == 'POST':
@@ -113,4 +114,4 @@ def city_detail(request, city_id):
             return redirect('city_detail', city_id)
     else:
         form = PostForm()
-        return render(request, 'cities/detail.html', {'city': city, 'posts': posts, 'form': form})
+        return render(request, 'cities/detail.html', {'city': city, 'posts': posts, 'form': form, 'cities': cities})
