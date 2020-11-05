@@ -51,7 +51,9 @@
                     <div class="card-stacked">
                         <div class="card-content">
                             <h4 class="post-title-card">{{post.title}}</h4>
-                            <p>{{post.description}}</p>
+                            <div class="post-description-text">
+                                <p class="truncate">{{post.description}}</p>
+                            </div>
                         </div>
                         <div class="card-action">
                             <a href="{% url 'post_detail' post.id %}" class="waves-effect waves-light btn">View Post</a>
