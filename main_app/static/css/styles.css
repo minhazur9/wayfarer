@@ -40,6 +40,22 @@ main {
     display: none;
 }
 
+/* ---------------------------------------------------
+                     ALL CITIES PAGE                
+--------------------------------------------------- */
+
+.all-cities-page-section {
+    margin-top: 1.5rem;
+}
+
+.all-cities-title {
+    color: black;
+}
+
+/* ---------------------------------------------------
+                     CURRENT CITY PAGE               
+--------------------------------------------------- */
+
 .city-detail-container {
     margin: 1rem;
     flex-wrap: wrap;
@@ -62,6 +78,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    text-align: center;
 }
 
 .all-cities-container a {
@@ -271,8 +288,4 @@ main {
     width: 300px;
 }
 
-
-/* p select {
-    display: block;
-} */
 
