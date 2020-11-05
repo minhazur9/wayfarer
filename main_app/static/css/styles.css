@@ -26,7 +26,7 @@ main{
 /* TOP HALF */
 .carousel_{
     position: relative;
-    height: 600px;
+    height: 50vh;
     width: 80%;
     margin: 0 auto;
 }
@@ -96,10 +96,12 @@ main{
     background-color: red;
     text-align: center;
     height: 35vh;
+    width: 100%;
     display: flex;
+    margin-top: 3rem;
 }
 .landing-grid-item{
-    margin: 1rem 4rem;
+    margin: .5rem 4rem;
 }
 
 /* ---------------------------------------------------
