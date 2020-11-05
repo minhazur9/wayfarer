@@ -36,5 +36,28 @@ main {
 .row .col.s8.current-city-container {
     background-color: var(--secondary-color);
     margin-left: .5rem !important;
-    width: 65% !important;
+    width: 66% !important;
+}
+
+.current-city-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.open-create-post {
+    align-self: flex-end;
+    margin-top: .25rem;
+    margin-right: 2.5rem;
+}
+
+.current-city-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.current-city-image {
+    margin-right: 0;
+    align-self: flex-end;
 }

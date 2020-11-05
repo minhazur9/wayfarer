@@ -15,7 +15,7 @@
         </div>
         {% endfor %}
     </div>
-    {% comment %} <div class="col "></div> {% endcomment %}
+
     <article class="col s8 current-city-container">
         <div>
             {% if messages %}
@@ -25,18 +25,20 @@
                 {% endfor %}
             </ul>
             {% endif %}
-            <h3>{{ city.city_name }}</h3>
-            <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class="container sm">
-        <a class="btn-floating btn-large waves-effect waves-light "><i class="material-icons cities-detail-buttons">add</i></a>
+            <figure class="current-city-header">
+                <h3 class="current-city-title">{{ city.city_name }}</h3>
+                <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class="container sm current-city-image">
+            </figure>
         </div>
         {% comment %} <button href="" class="btn new-post-btn ">New Post</button> {% endcomment %}
 
-        <div class="new-post">
-            <form method="POST">
+        <a class="btn-floating btn-large waves-effect waves-light open-create-post modal-trigger" href="#modal2"><i class="material-icons cities-detail-buttons">add</i></a>
+        <div class="new-post modal" id="modal2">
+            <form method="POST" class="modal-content">
                 {% csrf_token %}
                 {{ form.as_p }}
                 
-                <button type="submit" class="btn cities-detail-buttons">Submit Post</button>
+                <button type="submit" class="btn cities-detail-buttons modal-close waves-effect waves-green">Submit Post</button>
             </form>
         </div>
         <div>
@@ -44,11 +46,14 @@
             <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
             {% endfor %}
         </div>
+
     </article>
 
 </section>
 {% comment %} onerror="this.src='imagefound.gif';" {% endcomment %}
 <script>
+    // Materialize methods
+    M.Modal.init(modal2);
     M.FormSelect.init(id_user)
     M.FormSelect.init(id_city)
 </script>
