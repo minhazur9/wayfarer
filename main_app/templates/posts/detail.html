@@ -27,7 +27,9 @@ My Post
     {% csrf_token %}
        {{form.as_p}}
        <button type="submit" class="btn">Submit</button>
+       <button type= "button" class="btn cancel-comment">Cancel</button>
     </form>
+    <h4>{{comments.count}} comments</h4>
     {% for comment in comments %}
     <h4 class="comment">{{comment.user.username}}</h4>
     <p class="comment-content">{{comment.content}}</p>

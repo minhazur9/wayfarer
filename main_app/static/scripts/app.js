@@ -30,7 +30,17 @@ if(confirmDelete){
 
 const addComment = document.querySelector('.add-comment');
 const commentForm = document.querySelector('.comment-form');
+const cancelComment = document.querySelector('.cancel-comment')
 
 addComment.addEventListener('click', () => {
-    commentForm.classList.toggle('hidden');
+    addComment.classList.add('hidden');
+    commentForm.classList.remove('hidden');
 })
+
+cancelComment.addEventListener('click', () => {
+    commentForm.querySelector('textarea').value = "";
+    commentForm.classList.add('hidden');
+    addComment.classList.remove('hidden');
+})
+
+
