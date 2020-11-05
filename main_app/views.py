@@ -19,7 +19,7 @@ def signup(request):
             user = form.save()
             login(request, user)
             Profile.objects.create(user=user)
-            return redirect('my_profile')
+            return redirect('home')
     else:
         error_message = 'Invalid sign up = try again'
         form = UserCreationForm()
@@ -30,16 +30,23 @@ def signup(request):
 def profile_detail(request, username):
     user = User.objects.get(username=username)
     profile = Profile.objects.get(user=user)
-    return render(request, 'profiles/detail.html', {'profile': profile})
+    comments = Comment.objects.filter(user=user)
+    context = {
+        'profile': profile,
+        'comments': comments
+    }
+    return render(request, 'profiles/detail.html', context)
 
 @login_required
 def my_profile(request):
     my_profile = User.objects.get(username=request.user.username)
     posts = Post.objects.filter(user=request.user)
     cities = City.objects.all()
+    comments = Comment.objects.filter(user=request.user)
     context = {
         'my_profile': my_profile,
-        'posts': posts
+        'posts': posts,
+        'comments': comments
     }
     return render(request,'profiles/my_profile.html', context)
 
@@ -59,8 +66,27 @@ def edit_profile(request):
 # Post routes
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
+    comments = Comment.objects.filter(post=post_id)
     print(post.__dict__, '-----------------------HERE')
-    return render(request, 'posts/detail.html', {'post': post})
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.user = request.user
+            new_comment.post = post
+            new_comment.save()
+            return redirect('post_detail',post_id)
+        else:
+            print(comment_form.user, comment_form.post, '-----------------------HERE')
+            return redirect('post_detail',post_id)
+    else: 
+        comment_form = CommentForm()
+        context = {
+        'post': post,
+        'comments': comments,
+        'form': comment_form
+    }
+        return render(request, 'posts/detail.html', context)
 
 @login_required
 def edit_post(request, post_id):
@@ -91,7 +117,10 @@ def delete_post(request, post_id):
         return redirect('my_profile')
 
 
-# City Routes
+
+
+
+
 def city_index(request):
     cities = City.objects.all()
     return render(request, 'cities/index.html', {'cities': cities})
