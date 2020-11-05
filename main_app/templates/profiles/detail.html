@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
-
 {% block title %}
 {{ profile.full_name }}
 {% endblock %}
 {% block content %}
 <div class="container">
-
 <div class="col s12 m7">
-
     <div class="card horizontal">
       <div class="card-stacked">
         
@@ -26,6 +23,12 @@
             <p>Current City: Not Specified</p>
             {% endif %}
             <p>Joined: {{ profile.join_date }}</p>
+            created {{comments.count}} 
+        {% if comments.count == 1 %}
+        comment
+        {% else %}
+        comments
+        {% endif %}
             
         </div>
           <div class="dashboard-img-container">
@@ -47,16 +50,11 @@
         
         {% endfor %}
         </div>
+        
           
         </div>
       </div>
     </div>
   </div>
-
-
-
-
-
-
 </div>
 {% endblock content %}
