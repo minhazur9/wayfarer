@@ -10,6 +10,12 @@
     <p>
         pic
         {{ profile.current_city }}
+        created {{comments.count}} 
+        {% if comments.count == 1 %}
+        comment
+        {% else %}
+        comments
+        {% endif %}
         {{ profile.join_date }}
     </p>
 </div>

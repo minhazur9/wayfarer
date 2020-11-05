@@ -12,6 +12,12 @@ My Dashboard
 <a class="btn" href="{% url 'edit_profile' %}">Edit Profile</a>
 
 <h1>{{request.user.username}}</h1>
+created {{comments.count}} 
+        {% if comments.count == 1 %}
+        comment
+        {% else %}
+        comments
+        {% endif %}
 <p>Joined: {{ request.user.profile.join_date }}</p>
 {% for post in posts %}
 <p>

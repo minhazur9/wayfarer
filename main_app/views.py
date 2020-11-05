@@ -30,16 +30,23 @@ def signup(request):
 def profile_detail(request, username):
     user = User.objects.get(username=username)
     profile = Profile.objects.get(user=user)
-    return render(request, 'profiles/detail.html', {'profile': profile})
+    comments = Comment.objects.filter(user=user)
+    context = {
+        'profile': profile,
+        'comments': comments
+    }
+    return render(request, 'profiles/detail.html', context)
 
 @login_required
 def my_profile(request):
     my_profile = User.objects.get(username=request.user.username)
     posts = Post.objects.filter(user=request.user)
     cities = City.objects.all()
+    comments = Comment.objects.filter(user=request.user)
     context = {
         'my_profile': my_profile,
-        'posts': posts
+        'posts': posts,
+        'comments': comments
     }
     return render(request,'profiles/my_profile.html', context)
 
