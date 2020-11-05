@@ -1,16 +1,34 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
 Home
 {% endblock %}
 {% block content %}
-<section class="carousel">
-<div>
-<h1 id="landing-title">Wayfarer</h1>
-<h5>SEI project</h5>
+<section class="carousel_">
+<button class="carousel__button carousel-left"><i class="material-icons">arrow_back</i></button>
+<div class="carousel__track-container">
+    <ul class="carousel__track">
+    <li class="carousel__slide current-slide">
+    <img class="carousel__img" src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80" alt="">
+    </li>
+    <li class="carousel__slide">
+    <img class="carousel__img" src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+    </li>
+    <li class="carousel__slide">
+    <img class="carousel__img" src="https://images.unsplash.com/photo-1517141772911-756dc840a94f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1188&q=80" alt="">
+    </li>
+    </ul>
+</div>
+<button class="carousel__button carousel-right"><i class="material-icons">arrow_forward</i></button>
+
+<div class="carousel_nav">
+<button class="carousel_indicator current-slide"></button>
+<button class="carousel_indicator"></button>
+<button class="carousel_indicator"></button>
 </div>
 
 </section>
-<section class="landing-grid">
+{% comment %} <section class="landing-grid">
     <div class="landing-grid-item">
     <h4>Title</h4>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ipsam, eaque ipsum dolore repellat dolores asperiores autem eveniet deleniti ad ipsa, reiciendis veritatis neque laborum temporibus 
@@ -24,6 +42,7 @@ Home
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ipsam, eaque ipsum dolore repellat dolores asperiores autem eveniet deleniti ad ipsa, reiciendis veritatis neque laborum temporibus 
     </div>
 
-</section>
+</section> {% endcomment %}
 
 {% endblock content %}
+<script src="{% static 'scripts/carousel.js' %}"></script>
