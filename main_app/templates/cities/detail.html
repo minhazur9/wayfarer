@@ -6,17 +6,19 @@
 
 {% block content %}
 <section class="city-detail-container row">
-    <div class="all-cities-container col s12 m12 l4">
+    <div class="all-cities-container col s12 m12 l5">
         <h3>Cities</h3>
         {% for city in cities %}
-        <div>
-            <h3><a href="{% url 'city_detail' city.id %}">{{city.city_name}}</a></h3>
-            <img src="{{city.city_image}}" alt="" class="container sm">
+        <div class="all-cities-cards">
+            <div class="card horizontal row">
+                <img class="card-image col l5 all-cities-image" src="{{city.city_image}}" alt="" class="container sm">
+                <h3 class="card-content col l7"><a href="{% url 'city_detail' city.id %}">{{city.city_name}}</a></h3>
+            </div>
         </div>
         {% endfor %}
     </div>
 
-    <article class="col s12 m12 l8 current-city-container row">
+    <article class="col s12 m12 l7 current-city-container row">
         <div class="">
             {% if messages %}
             <ul class="messages">
@@ -35,8 +37,8 @@
                 </div>
             </figure>
         </div>
-
         <a class="btn-floating btn-large waves-effect waves-light open-create-post modal-trigger" href="#modal2"><i class="material-icons cities-detail-buttons">add</i></a>
+
             {% for post in posts %}
             <div class="col s12">
                 <div class="card horizontal post-card-container">

@@ -34,7 +34,11 @@ main {
 .all-cities-container {
     background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
-    height: 100% !important;
+}
+
+.all-cities-container a {
+    color: black;
+
 }
 
 .row .col.s12.current-city-container {
@@ -95,4 +99,12 @@ main {
 
 .post-card-container a{
     background-color: var(--accent-color) !important;
+}
+
+.all-cities-image {
+    padding: 10px !important;
+}
+
+.all-cities-cards {
+    padding: 0 10px 0 10px;
 }
