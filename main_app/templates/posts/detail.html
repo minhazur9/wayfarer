@@ -17,22 +17,22 @@ My Post
                         <h6> By: <a href="{% url 'profile_detail' user.username %}">{{post.user.username}}</a></h6>
                         {{ post.description }}
                         {{ post.photo }}
-                        <h2>post from: {{ post.city }}</a></h2>
+                        <h5>post from: {{ post.city }}</a></h2>
+                        <!-- Edit/Delete Buttons-->
+                        {% if request.user == post.user %}
+                            <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
+                            <button id="confirm-delete" class="btn">Delete Post</button>
+                            <form action="{% url 'delete_post' post.id %}" class="hidden delete-form" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn">Click to Confirm Deletion</button>
+                            </form>
+                        {% endif %}
                     </div>
                 </div>
             </div>
 
-        <!-- Edit/Delete Buttons-->
-        {% if request.user == post.user %}
-        <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
-        <button id="confirm-delete" class="btn">Delete Post</button>
-        <form action="{% url 'delete_post' post.id %}" class="hidden delete-form" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn">Click to Confirm Deletion</button>
-        </form>
-        {% endif %}
 
-
+<div>
     <article class="">
         
         <!-- add comment-->
@@ -53,6 +53,7 @@ My Post
         <p class="comment-content">{{comment.content}}</p>
         {% endfor %}
     </article> 
+</div>
 </section>
 
 {% endblock %}
