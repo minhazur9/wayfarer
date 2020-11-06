@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import *
 
-# Static routes
+# ----------------------- Static routes
 def home(request):
     cities = City.objects.all()
     return render(request, 'home.html', {'cities': cities})
@@ -30,7 +30,7 @@ def signup(request):
         context = {'form': form, 'error_message': error_message}
         return render(request, 'registration/signup.html', context)
 
-# Profile routes
+# ----------------------- Profile routes
 def profile_detail(request, username):
     user = User.objects.get(username=username)
     profile = Profile.objects.get(user=user)
@@ -69,11 +69,36 @@ def edit_profile(request):
         context = {'form': form, 'profile': profile}
         return render(request, 'profiles/edit_profile.html', context)
 
-# Post routes
+# ----------------------- City Routes
+def city_index(request):
+    cities = City.objects.all()
+    return render(request, 'cities/index.html', {'cities': cities})
+
+@login_required
+def city_detail(request, city_id):
+    user = User.objects.get(id = request.user.id)
+    city = City.objects.get(id = city_id)
+    cities = City.objects.all()
+    posts = Post.objects.filter(city=city).order_by('-id')
+
+    if request.method == 'POST':
+        post_form = PostForm(request.POST)
+        if post_form.is_valid():
+            new_post = post_form.save(commit=False)
+            new_post.user = request.user
+            new_post.city = city
+            new_post.save()
+            messages.success(request, f'Successfully created post titled: {new_post.title}!')
+            return redirect('city_detail', city_id)
+    else:
+        form = PostForm()
+        return render(request, 'cities/detail.html', {'city': city, 'posts': posts, 'form': form, 'cities': cities})
+
+# ----------------------- Post routes
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
     comments = Comment.objects.filter(post=post_id).order_by("-id")
-    print(post.__dict__, '-----------------------HERE')
+    city = City.objects.get(post=post_id)
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
@@ -90,7 +115,8 @@ def post_detail(request, post_id):
         context = {
         'post': post,
         'comments': comments,
-        'form': comment_form
+        'form': comment_form,
+        'city': city,
     }
         return render(request, 'posts/detail.html', context)  
 
@@ -119,38 +145,9 @@ def delete_post(request, post_id):
         
         return redirect('my_profile')
     else:
-        # flash message error
-        return redirect('my_profile')
+        return redirect('my_profile', {'error_message': error_message})
 
-
-
-
-
-
-def city_index(request):
-    cities = City.objects.all()
-    return render(request, 'cities/index.html', {'cities': cities})
-
-@login_required
-def city_detail(request, city_id):
-    user = User.objects.get(id = request.user.id)
-    city = City.objects.get(id = city_id)
-    cities = City.objects.all()
-    posts = Post.objects.filter(city=city).order_by('-id')
-
-    if request.method == 'POST':
-        post_form = PostForm(request.POST)
-        if post_form.is_valid():
-            new_post = post_form.save(commit=False)
-            new_post.user = request.user
-            new_post.city = city
-            new_post.save()
-            messages.success(request, f'Successfully created post titled: {new_post.title}!')
-            return redirect('city_detail', city_id)
-    else:
-        form = PostForm()
-        return render(request, 'cities/detail.html', {'city': city, 'posts': posts, 'form': form, 'cities': cities})
-
+# ----------------------- Comment Routes
 @login_required
 def edit_comment(request, post_id, comment_id):
     post = Post.objects.get(id=post_id)

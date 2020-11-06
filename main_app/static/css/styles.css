@@ -52,7 +52,7 @@ a {
 }
 
 /* ---------------------------------------------------
-                     ABOUT PAGE                
+                    ABOUT PAGE                
 --------------------------------------------------- */
 
 .about-container {
@@ -72,7 +72,7 @@ a {
 
 
 /* ---------------------------------------------------
-                     ALL CITIES PAGE                
+                    ALL CITIES PAGE                
 --------------------------------------------------- */
 
 .all-cities-page-section {
@@ -87,7 +87,7 @@ a {
     margin: auto;
 }
 /* ---------------------------------------------------
-                     CURRENT CITY PAGE               
+                    CURRENT CITY PAGE               
 --------------------------------------------------- */
 
 .city-detail-container {
@@ -219,16 +219,29 @@ a {
     padding: 2vh;
     margin: 2rem;
 }
+
 .post-card{
     color: black;
     height: 100vh;
 }
+
 .post-container {
     background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
     padding: 2vh;
     height: 100vh;
 }
+
+.post-title {
+    color: white;
+}
+
+.post-content {
+    background-color: white;
+    padding: 2vh;
+    margin-bottom: 2vh;
+}
+
 .comments-container {
     background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
@@ -237,12 +250,26 @@ a {
     color: black;
 }
 
-.post-title {
-    color: white;
+.comment-content {
+    background-color: rgba(236, 235, 235, 1);
+    padding: 2%;
+    margin-bottom: 3%;
 } 
-.single-comment {
-    background-color: rgba(236, 235, 235, 0.7);
-} 
+
+.comment-btn {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4%;
+}
+
+.edit-btn {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-comment {
+    margin: 0 1vh;
+}
 
 /* ---------------------------------------------------
                     LANDING                

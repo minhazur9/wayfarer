@@ -10,22 +10,27 @@ My Post
         <div class="row">
             <div class="col s12 m12 l7">
                 <div class="post-container">
-                        <img class="post__image" width="500px" height="350px" src="{{ post.photo }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                    <img class="post__image" width="500px" height="350px" src="{{ post.photo }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                    <h2 class="post-title"><a href="{% url 'city_detail' city.id %}">{{ post.title }}</a></h2>
+                    <div class="post-content">
                     <h5>By: <a href="{% url 'profile_detail' user.username %}">{{post.user.username}}</a></h5>
-                        {{ post.title }}
-                        {{ post.description }}
-                        {{ post.photo }}
-                        <h2>{{ post.city }}</h2>
+                    {{ post.description }}
+                    <h5>From: <a href="{% url 'city_detail' city.id %}">{{ post.city }}</a></h5>
+                    </div>
+                    <div class="edit-comment">
                         {% if request.user == post.user %}
-                        <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
-                        
-                        <button id="confirm-delete" class="btn-small red">Delete Post</button>
-                        <form action="{% url 'delete_post' post.id %}" class="hidden delete-form" method="post">
-                        {% csrf_token %}
-                            <button type="submit" class="btn red">Click to Confirm Deletion</button>
-                        </form>
+                        <div class="edit-btn">
+                            <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
+                            
+                            <button id="confirm-delete" class="btn red edit-comment">Delete Post</button>
+                            <form action="{% url 'delete_post' post.id %}" class="hidden delete-form" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn red edit-comment">Click to Confirm Deletion</button>
+                            </form>
+                        </div>
                         {% endif %}
                     </div>
+                </div>
             </div>
             <div class="col s12 m12 l4">
                 <div class="comments-container">
@@ -46,21 +51,25 @@ My Post
                             {{comments.count}} comments
                         {% endif %}
                         </h4>
-                        {% for comment in comments %}
-                            <h4 class="comment">{{comment.user.username}}</h4>
-                            <p class="comment-content">{{comment.content}}</p>
-                        {% if request.user == comment.user %}
-                            <form action="{% url 'edit_comment' post.id comment.id %}" method="POST" class="hidden edit-comment-form">
+                            {% for comment in comments %}
+                        <div class="comment-content">
+                                <h5 class="comment"><a href="{% url 'profile_detail' user.username %}">{{comment.user.username}}</a> says:</h5>
+                                <p class="comment-content">{{comment.content}}</p>
+                            {% if request.user == comment.user %}
+                                <form action="{% url 'edit_comment' post.id comment.id %}" method="POST" class="hidden edit-comment-form">
+                                {% csrf_token %}
+                                {{form.as_p}}
+                                <button type="submit" class="btn">Update</button>
+                                <button type= "button" class="btn cancel-edit-comment">Cancel</button>
+                            </form>
+                        </div>
+                        <div class="comment-btn">
+                            <button type="button" class="edit-comment  btn">Edit</button>
+                            <form action="{% url 'delete_comment' post.id comment.id %}" method="POST" class="delete-comment-form">
                             {% csrf_token %}
-                            {{form.as_p}}
-                            <button type="submit" class="btn">Update</button>
-                            <button type= "button" class="btn cancel-edit-comment">Cancel</button>
+                                <button type="submit" class="edit-comment btn red">Delete</button>
                         </form>
-                        <button type="button" class="edit-comment btn">Edit</button>
-                        <form action="{% url 'delete_comment' post.id comment.id %}" method="POST" class="delete-comment-form">
-                        {% csrf_token %}
-                            <button type="submit" class="btn red">Delete</button>
-                        </form>
+                        </div>
                         {% endif %}
                         {% endfor %}
                         </ul>
