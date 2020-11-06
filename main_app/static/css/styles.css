@@ -428,11 +428,13 @@ p span{
 }
 .dashboard-img-container a{
     width: 300px;
+    display: block;
 }
 
 .dashboard-img-container h4{
     text-align: center;
 }
+
 
 /* ---------------------------------------------------
                     Edit profile                
