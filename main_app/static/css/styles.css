@@ -39,7 +39,9 @@ main {
 
 nav {
     background-color: var(--secondary-color);
-    color:  black;
+}
+.nav-wrapper li>a{
+    color: black;
 }
 .brand-logo img {
     height: 48px;
