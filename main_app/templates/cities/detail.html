@@ -53,7 +53,7 @@
                             <h4 class="post-title-card">{{post.title}}</h4>
                             <div class="post-author-container">
                             <h6>By:</h6>
-                                <a  class="post-link" href="{% url 'profile_detail' user.username %}">                                <img class="post-user-img" src="{{ user.profile.user_image }}" alt="{{ user.username }}'s picture'" onerror="this.src='{% static 'images/default_post_img.png' %}';"></a>
+                                <a  class="post-link" href="{% url 'profile_detail' post.user.username %}">                                <img class="post-user-img" src="{{ post.user.profile.user_image }}" alt="{{ post.user.username }}'s picture'" onerror="this.src='{% static 'images/default-user-img.png' %}';"></a>
                             </div>
                                 
 
