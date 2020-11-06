@@ -40,6 +40,26 @@ main {
 }
 
 /* ---------------------------------------------------
+                     ABOUT PAGE                
+--------------------------------------------------- */
+
+.about-container {
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-subheading {
+    color: var(--accent-color);
+}
+
+ .about-img {
+    max-height: 12rem;
+}   
+
+
+/* ---------------------------------------------------
                      ALL CITIES PAGE                
 --------------------------------------------------- */
 
@@ -51,6 +71,9 @@ main {
     color: black;
 }
 
+.city-title-all-cities {
+    margin: auto;
+}
 /* ---------------------------------------------------
                      CURRENT CITY PAGE               
 --------------------------------------------------- */
