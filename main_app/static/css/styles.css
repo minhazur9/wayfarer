@@ -10,7 +10,6 @@ body {
 
     display: flex;
     min-height: 100vh;
-    color: var(--primary-color);
     flex-direction: column;
     box-sizing: border-box;
 }
@@ -73,8 +72,7 @@ main {
 .all-cities-container {
     background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
-    border-bottom: 25px solid #f9f9f9;
-    flex: 1;
+    flex: 1 1 20em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -94,12 +92,12 @@ main {
     flex-direction: column;
     align-items: center;
     border: 5px solid #F9F9F9;
-    flex: 1;
+    flex: 2 2 20em;
 }
 
 .open-create-post {
     align-self: flex-end;
-    margin-top: .25rem;
+    margin-top: 1rem;
     margin-bottom: .5rem;
     margin-right: 1rem;
 }
@@ -113,9 +111,13 @@ main {
 }
 
 .current-city-image {
-    margin-right: 1rem;
+    margin-right: 3.5rem;
+    margin-top: 1rem;
     padding-left: 20px;
     align-self: flex-end;
+    margin-left: 1rem;
+    width: 100% !important;
+
 }
 
 .current-city-title {
@@ -160,7 +162,7 @@ main {
     overflow-wrap: break-word;
 }
 
-.AAA {
+.all-cities-card-title {
     color: var(--primary-color) !important;
 }
 
@@ -291,4 +293,8 @@ main {
     width: 300px;
 }
 
-
+@media only screen and (max-width: 900px) {
+    .all-cities-card-title {
+        font-size: 25px;
+    }
+} 
