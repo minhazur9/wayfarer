@@ -22,10 +22,10 @@
                         <div class="edit-btn">
                             <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
                             
+                            <form action="{% url 'delete_post' post.id %}" class=" delete-form" method="post">
                             <button id="confirm-delete" class="btn red edit-comment">Delete Post</button>
-                            <form action="{% url 'delete_post' post.id %}" class="hidden delete-form" method="post">
                                 {% csrf_token %}
-                                <button type="submit" class="btn red edit-comment">Click to Confirm Deletion</button>
+                                {% comment %} <button type="submit" class="btn red edit-comment">Click to Confirm Deletion</button> {% endcomment %}
                             </form>
                         </div>
                         {% endif %}

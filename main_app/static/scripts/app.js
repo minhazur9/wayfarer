@@ -106,10 +106,7 @@ if(confirmDelete){
     confirmDelete.addEventListener('click' , () => {
         const input =  confirm('Are you sure you want to delete this post?');
         if (input === true) {
-            deleteForm.classList.toggle('hidden');
-            confirmDelete.classList.toggle('hidden');
-        } else {
-            return alert('You did not delete your post');
+            confirmDelete.setAttribute('type', 'submit')
         }
     });
 }
