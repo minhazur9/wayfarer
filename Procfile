@@ -1,1 +1,1 @@
-web: gunicorn {name of your project folder}.wsgi
+web: gunicorn wayfarer_project.wsgi
