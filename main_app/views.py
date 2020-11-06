@@ -12,6 +12,9 @@ def home(request):
     cities = City.objects.all()
     return render(request, 'home.html', {'cities': cities})
 
+def about(request):
+    return render(request, 'about.html')
+
 def signup(request):
     error_message = ''
     if request.method == 'POST':
