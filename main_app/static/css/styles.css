@@ -24,8 +24,8 @@ main {
     background-color: var(--accent-color);
 }
 
-.nav {
-    background-color: var(--secondary-color);
+.nav-wrapper {
+    background-color: var(--primary-color);
 }
 
 .page-footer {

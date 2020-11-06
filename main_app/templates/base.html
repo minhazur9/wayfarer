@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -16,35 +15,17 @@
     <title>Wayfarer - {% block title %} {% endblock  %}</title>
 </head>
 <body>
-    <header class="navbar-fixed">
-        <nav class="nav">
-            <div class="nav-wrapper">
-                <a href="/" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'my_profile' %}" >{{request.user.username}}</a></li>
-                <li><a href="{% url 'city_index' %}">All Cities</a></li>
-                <li><a href="{% url 'logout' %}" class="waves-effect waves-light btn">Log Out</a></li>
-            {% else %}
-                <li><a href="{% url 'signup' %}" class="waves-effect waves-light btn">Sign Up</a></li>
-                <li><a href="{% url 'login' %}" class="waves-effect waves-light btn">Log In</a></li>
-            {% endif %}
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-    
+{% include './partials/nav.html' %}
+<main>
     {% block content %}
-        
     {% endblock content %}
-
- </main>
-    <footer class="page-footer">
-        <div class="right">
-            © 2020 WayFarer 
-        </div>
-    </footer>
+</main>
 </body>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
+    </script>
+    {% include './partials/footer.html' %}
 </html>
