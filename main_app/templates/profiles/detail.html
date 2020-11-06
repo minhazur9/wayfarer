@@ -14,24 +14,24 @@
         <div class="dashboard-card-left">
         <div>
         {% if profile.full_name %}
-            <p>Full Name: {{profile.full_name}}</p>
+            <p>Full Name: <span>{{profile.full_name}}</span> </p>
             {% else %}
-            <p>Full Name: Not Specified</p>
+            <p>Full Name: <span>Not Specified</span> </p>
             {% endif %}
             {% if profile.current_city %}
-            <p>Current City: {{ profile.current_city }}</p>
+            <p>Current City: <span>{{ profile.current_city }}</span> </p>
             {% else %}
-            <p>Current City: Not Specified</p>
+            <p>Current City: <span>Not Specified</span> </p>
             {% endif %}
         </div>
         <div>
+        <p>Joined: <span>{{ profile.join_date }}</span> </p>
             <p>{{ profile.user.username }} Has Made {{comments.count}} 
             {% if comments.count == 1 %}
         comment</p>
         {% else %}
         comments</p>
         {% endif %}
-        <p>Joined: {{ profile.join_date }}</p>
         </div>
 
             

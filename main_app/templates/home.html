@@ -12,8 +12,8 @@ Home
     <li class="carousel__slide current-slide">
     <img class="carousel__img" src="{{ city.city_image }}" alt="Picture of {{ city.city_name }}">
     <div class="carousel-overlay">
-        <div class="carousel-message">
-            <h2>{{ city.city_name }}</h2>
+        <div class="carousel-message fadein">
+            <h2><a href="/cities/{{ city.id }}">{{ city.city_name }}</a></h2>
         </div>
     </div>
     </li>

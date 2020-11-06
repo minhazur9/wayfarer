@@ -4,16 +4,16 @@
 {% block content %}
 <div class="container">
 
-<div class="card">
-<form class="edit_profile_form" method="POST">
-<div class="dashboard-img-container">
-          <img class="dashboard-prof-img" src="{{ request.user.profile.user_image }}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
-        <h2>{{ request.user.username }}</h2>
-        </div>
+<div class="card row edit_profile_container">
+<form class="edit_profile_form col s12 m8" method="POST">
+
 {% csrf_token %}
 {{form.as_p}}
-<button class="btn cities-detail-buttons waves-effect waves-green" type="submit">Update</button>
+<button class="btn cities-detail-buttons waves-effect waves-green col s12" type="submit">Update</button>
 </form>
+<div class="dashboard-img-container col s12 m4">
+          <img class="dashboard-prof-img" src="{{ request.user.profile.user_image }}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
+        </div>
 
 </div>
 </div>

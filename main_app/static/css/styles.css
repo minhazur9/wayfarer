@@ -22,7 +22,7 @@ main {
 }
 
 .nav {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
 }
 .brand-logo img {
     height: 48px;
@@ -32,7 +32,7 @@ main {
 }
 
 .page-footer {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     padding-top: 2vh;
     position: relative;
     top: 20vh;
@@ -97,6 +97,7 @@ main {
     margin-right: 1rem;
     padding-left: 20px;
     align-self: flex-end;
+
 }
 
 .current-city-title {
@@ -120,6 +121,10 @@ main {
     overflow: hidden;
 }
 
+.post__image{
+    border: #F0DE87 3px solid;
+}
+
 .post-card-container p {
     color: #9E9E9E;
 }
@@ -130,6 +135,7 @@ main {
 
 .all-cities-image {
     padding: 10px !important;
+    
 }
 
 .all-cities-cards {
@@ -196,19 +202,26 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
-    background-color: var(--accent-color);
+    background-color: var(--secondary-color);
     z-index: 3;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding: 2rem;
     border: white 10px solid;
     opacity: .8;
+}
+.carousel-message h2 {
+    margin: 0;
+
+}
+
+.carousel-message h2>a {
+    color: black;
 }
 .carousel__button{
     position: absolute;
     top: 50%;
     height: 100%;
     transform: translateY(-50%);
-    background: transparent;
+    background: lightgray;
     border: 0;
 }
 .carousel__button:focus{
@@ -258,6 +271,29 @@ main {
     
 }
 
+.fadein{
+    animation: fadein 1s ease-in;
+}
+.fadeout{
+    animation: fadeout 1s ease-out;
+}
+
+@keyframes fadein { 
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:.8;
+    }
+}
+@keyframes fadeout {
+    0% {
+        opacity:.8;
+    }
+    100% {
+        opacity:0;
+    }
+}
 
 /* ---------------------------------------------------
                      USER SHOW                
@@ -267,6 +303,10 @@ main {
 /* ---------------------------------------------------
                 MY PROFILE / DASHBOARD                
 --------------------------------------------------- */
+p span{
+    font-size: .75em;
+    margin-left: 10px;
+}
 .dashboard-card-grid{
     display: flex;
     justify-content: space-around;
@@ -297,12 +337,24 @@ main {
     width: 300px;
 }
 
+.dashboard-img-container h4{
+    text-align: center;
+}
+
 /* ---------------------------------------------------
                     Edit profile                
 --------------------------------------------------- */
 .edit_profile_form{
     padding: 2rem;
+
 }
+
+.edit_profile_container{
+    padding: 3rem;
+    margin-top: 10vh;
+}
+
+
 
 
 
