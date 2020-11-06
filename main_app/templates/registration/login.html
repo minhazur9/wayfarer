@@ -3,13 +3,15 @@
 Login
 {% endblock %}
 {% block content %}
+<div class="all-purpose-container  container card">
 <div class="container">
     <h1>Login</h1>
     <form action="{% url 'login' %}" method="POST">
     {% csrf_token %}
     {{form.as_p}}
     <input type="hidden" name="next" value="{{next}}">
-    <input type="submit" value="Login">
+    <input class="btn all-purpose-btn" type="submit" value="Login">
     </form>
     {% endblock content %}
+</div>
 </div>

@@ -17,6 +17,18 @@ main {
     flex: 1 0 auto;
 }
 
+.all-purpose-container{
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.all-purpose-container .container{
+    padding: 2rem;
+}
+
+.all-purpose-btn{
+    width: 100%;
+}
 /* ---------------------------------------------------
                     STATIC THINGS (nav, buttons, footer)               
 --------------------------------------------------- */
