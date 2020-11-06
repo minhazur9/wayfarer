@@ -114,8 +114,13 @@ a {
     text-align: center;
 }
 
+.post-link {
+    background-color: transparent;
+}
+
 .all-cities-container a {
     color: black;
+    
 }
 
 .row .col.s12.current-city-container {
@@ -187,9 +192,9 @@ a {
     color: #9E9E9E;
 }
 
-.post-card-container a{
-    background-color: var(--accent-color) !important;
-}
+/* .post-card-container a{
+    background-color: var(--accent-color); !important;
+} */
 
 .all-cities-image {
     padding: 10px !important;

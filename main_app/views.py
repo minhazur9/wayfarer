@@ -36,6 +36,7 @@ def profile_detail(request, username):
     profile = Profile.objects.get(user=user)
     comments = Comment.objects.filter(user=user)
     posts = Post.objects.filter(user=user).order_by('-id')
+    print(posts.__dict__, '-------------------HERE')
     context = {
         'profile': profile,
         'comments': comments,
