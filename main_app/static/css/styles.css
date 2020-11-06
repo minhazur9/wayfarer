@@ -338,6 +338,16 @@ a {
 .edit-comment {
     margin: 0 1vh;
 }
+.delete-btn-comment{
+    width: 95%;
+}
+.comment-btn-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.comment-btn-container button{
+    width: 40%;
+}
 
 /* ---------------------------------------------------
                     LANDING                

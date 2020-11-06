@@ -118,7 +118,9 @@ if(confirmDelete){
 const addComment = document.querySelector('.add-comment');
 const commentForm = document.querySelector('.comment-form');
 const cancelComment = document.querySelector('.cancel-comment')
-const editComment = document.querySelector('.edit-comment')
+const editComment = document.querySelector('.edit-comment');
+
+
 
 if(addComment) {
 addComment.addEventListener('click', () => {
@@ -130,6 +132,7 @@ cancelComment.addEventListener('click', () => {
     commentForm.querySelector('textarea').value = "";
     commentForm.classList.toggle('hidden');
     addComment.classList.toggle('hidden');
+
 
 })
 
@@ -144,8 +147,11 @@ $('.edit-comment').on('click', function() {
 
 $('.cancel-edit-comment').on('click', function() {
     console.log($(this).parent().toggleClass('hidden'))
-    $(this).parent().prev().toggleClass('hidden')
+    // $(this).parent().prev().toggleClass('hidden');
+
     $(this).parent().next().toggleClass('hidden');
 })
+
+
 
 }

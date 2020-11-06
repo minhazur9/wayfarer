@@ -69,17 +69,19 @@
                                 <form action="{% url 'edit_comment' post.id comment.id %}" method="POST" class="hidden edit-comment-form">
                                 {% csrf_token %}
                                 {{form.as_p}}
+                                <div class="comment-btn-container">
                                 <button type="submit" class="btn">Update</button>
                                 <button type= "button" class="btn cancel-edit-comment">Cancel</button>
+                                </div>
                             </form>
-                        </div>
-                        <div class="comment-btn">
                             <button type="button" class="edit-comment  btn">Edit</button>
+                        </div>
+                        
                             <form action="{% url 'delete_comment' post.id comment.id %}" method="POST" class="delete-comment-form">
                             {% csrf_token %}
-                                <button type="submit" class="edit-comment btn red">Delete</button>
+                                <button type="submit" class="delete-btn-comment edit-comment btn red">Delete</button>
                         </form>
-                        </div>
+                     
                         {% endif %}
                         {% endfor %}
                         </ul>
