@@ -66,7 +66,7 @@ def edit_profile(request):
 # Post routes
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
-    comments = Comment.objects.filter(post=post_id)
+    comments = Comment.objects.filter(post=post_id).order_by("-id")
     print(post.__dict__, '-----------------------HERE')
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
@@ -77,7 +77,7 @@ def post_detail(request, post_id):
             new_comment.save()
             return redirect('post_detail',post_id)
         else:
-            print(comment_form.user, comment_form.post, '-----------------------HERE')
+            
             return redirect('post_detail',post_id)
     else: 
         comment_form = CommentForm()
@@ -87,6 +87,17 @@ def post_detail(request, post_id):
         'form': comment_form
     }
         return render(request, 'posts/detail.html', context)
+    
+@login_required
+def edit_comment(request, post_id, comment_id):
+    post = Post.objects.get(id=post_id)
+    comment = Comment.objects.get(id=comment_id)
+    if(request.user == comment.user):
+        if request.method == 'POST':
+            comment_form = CommentForm(request.POST, instance=comment)
+            updated_comment = comment_form.save()
+            return redirect('post_detail', post_id)
+        
 
 @login_required
 def edit_post(request, post_id):

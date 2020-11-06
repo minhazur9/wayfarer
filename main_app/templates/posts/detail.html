@@ -29,11 +29,29 @@ My Post
        <button type="submit" class="btn">Submit</button>
        <button type= "button" class="btn cancel-comment">Cancel</button>
     </form>
-    <h4>{{comments.count}} comments</h4>
+    <ul class="comment-list">
+    <h4>{% if comments.count < 1 %}
+    There are no comments...
+    {% elif comments.count == 1 %}
+    {{comments.count}} comment
+    {% else %}
+    {{comments.count}} comments
+    {% endif %}
+    </h4>
     {% for comment in comments %}
     <h4 class="comment">{{comment.user.username}}</h4>
     <p class="comment-content">{{comment.content}}</p>
+    {% if request.user == comment.user %}
+    <form action="{% url 'edit_comment' post.id comment.id %}" method="POST" class="hidden edit-comment-form">
+    {% csrf_token %}
+       {{form.as_p}}
+       <button type="submit" class="btn">Update</button>
+       <button type= "button" class="btn cancel-edit-comment">Cancel</button>
+    </form>
+    <button type="button" class="edit-comment btn">Edit</button>
+    {% endif %}
     {% endfor %}
+    </ul>
 </div>
 
 
