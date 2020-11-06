@@ -38,7 +38,10 @@ main {
 }
 
 nav {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+.nav-wrapper li>a{
+    color: black;
 }
 .brand-logo img {
     height: 48px;
@@ -48,9 +51,10 @@ nav {
 }
 
 .page-footer {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     padding-top: 2vh;
     position: relative;
+    color: black;
     top: 20vh;
 }
 .right {
@@ -137,8 +141,8 @@ a {
     flex: 1 1 20em;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    /* justify-content: flex-start; */
+    /* justify-content: space-evenly; */
+    justify-content: flex-start;
     text-align: center;
 }
 
@@ -297,6 +301,7 @@ a {
     margin-bottom: 2vh;
 }
 
+
 .comments-container {
     background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
@@ -311,6 +316,7 @@ a {
     background-color: rgba(236, 235, 235, 1);
     padding: 2%;
     margin-bottom: 3%;
+    margin-top: 2rem;
 } 
 .top-comment{
     display: flex;
@@ -337,6 +343,16 @@ a {
 
 .edit-comment {
     margin: 0 1vh;
+}
+.delete-btn-comment{
+    width: 95%;
+}
+.comment-btn-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.comment-btn-container button{
+    width: 40%;
 }
 
 /* ---------------------------------------------------
@@ -451,7 +467,6 @@ a {
 
 /* BOTTOM HALF */
 .landing-grid{
-    background-color: white;
     text-align: center;
     height: 35vh;
     display: flex;

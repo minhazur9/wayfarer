@@ -166,4 +166,6 @@ def delete_comment(request, post_id, comment_id):
     if(request.user == comment.user):
         comment.delete()
         return redirect('post_detail', post_id)
-            
+
+def handler404(request):
+    return render(request, '404.html')

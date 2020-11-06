@@ -18,5 +18,6 @@ urlpatterns = [
     path('posts/<int:post_id>/delete', views.delete_post, name='delete_post'),
     #Comment URLs
     path('posts/<int:post_id>/comments/<int:comment_id>/edit', views.edit_comment, name='edit_comment'),
-    path('posts/<int:post_id>/comments/<int:comment_id>/delete', views.delete_comment, name='delete_comment')
+    path('posts/<int:post_id>/comments/<int:comment_id>/delete', views.delete_comment, name='delete_comment'),
+    
 ]
