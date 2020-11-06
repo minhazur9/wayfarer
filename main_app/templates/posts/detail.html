@@ -12,10 +12,14 @@
                 <div class="post-container">
                     <img class="post__image" width="500px" height="350px" src="{{ post.photo }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
                     <h2 class="post-title"><a href="{% url 'city_detail' city.id %}">{{ post.title }}</a></h2>
+                    
+                    
                     <div class="post-content">
-                    <h5>By: <a href="{% url 'profile_detail' post.user.username %}">{{post.user.username}}</a></h5>
                     {{ post.description }}
                     <h5>From: <a href="{% url 'city_detail' city.id %}">{{ post.city }}</a></h5>
+                    </div>
+                    <div class="post-author-container">
+                    <h5>By: <a  class="post-link" href="{% url 'profile_detail' post.user.username %}">                               <p>{{ post.user.username }}</p></a></h5>
                     </div>
                     <div class="edit-comment">
                         {% if request.user == post.user %}

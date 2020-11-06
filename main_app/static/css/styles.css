@@ -29,6 +29,7 @@ main {
 .all-purpose-btn{
     width: 100%;
 }
+
 /* ---------------------------------------------------
                     STATIC THINGS (nav, buttons, footer)               
 --------------------------------------------------- */
@@ -209,6 +210,10 @@ a {
 .post-author-container{
     display: flex;
     justify-content: flex-end;
+}
+.post-link p {
+    margin: 0;
+    padding: 0;
 }
 .post-user-img{
     width: 50px;
