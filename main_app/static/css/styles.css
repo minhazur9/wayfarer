@@ -54,6 +54,7 @@ nav {
     background-color: var(--secondary-color);
     padding-top: 2vh;
     position: relative;
+    color: black;
     top: 20vh;
 }
 .right {
