@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
 {{ city.city_name }}
 {% endblock %}
@@ -45,7 +45,8 @@
             <div class="col s12">
                 <div class="card horizontal post-card-container">
                     <div class="card-image">
-                        <img src="{{post.photo}}">
+                        <img class="post__image" width="200px" height="200px" src="{{ post.photo }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                        <!-- CHANGE THIS TO POST IMG -->
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">

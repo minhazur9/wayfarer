@@ -9,7 +9,8 @@ from .models import *
 
 # Static routes
 def home(request):
-    return render(request, 'home.html')
+    cities = City.objects.all()
+    return render(request, 'home.html', {'cities': cities})
 
 def about(request):
     return render(request, 'about.html')
@@ -34,16 +35,18 @@ def profile_detail(request, username):
     user = User.objects.get(username=username)
     profile = Profile.objects.get(user=user)
     comments = Comment.objects.filter(user=user)
+    posts = Post.objects.filter(user=user).order_by('-id')
     context = {
         'profile': profile,
-        'comments': comments
+        'comments': comments,
+        'posts': posts,
     }
     return render(request, 'profiles/detail.html', context)
 
 @login_required
 def my_profile(request):
     my_profile = User.objects.get(username=request.user.username)
-    posts = Post.objects.filter(user=request.user)
+    posts = Post.objects.filter(user=request.user).order_by('-id')
     cities = City.objects.all()
     comments = Comment.objects.filter(user=request.user)
     context = {
