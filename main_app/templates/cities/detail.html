@@ -6,41 +6,41 @@
 
 {% block content %}
 <section class="city-detail-container row">
+
     <div class="all-cities-container col s12 m12 l5">
         <h3>Cities</h3>
         {% for city in cities %}
         <div class="all-cities-cards">
-        <a href="{% url 'city_detail' city.id %}">
-            <div class="card horizontal row">
-                <img class="card-image col l5 all-cities-image" src="{{city.city_image}}" alt="" class="container sm">
-                <h3 class="card-content col l7">{{city.city_name}}</h3>
-            </div>
-        </a>
+            <a href="{% url 'city_detail' city.id %}">
+                <div class="card horizontal row">
+                    <img class="card-image col l5 all-cities-image" src="{{city.city_image}}" alt="" class="container sm">
+                    <h3 class="card-content all-cities-card-title col l7">{{city.city_name}}</h3>
+                </div>
+            </a>
         </div>
         {% endfor %}
     </div>
 
-    <article class="col s12 m12 l7 current-city-container row">
-        <div class="">
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
+    <article class="col s12 m12 l7 current-city-container">
+        <div class="current-city-image container">
             <figure class="current-city-header">
                 <div>
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                     <h3 class="current-city-title">{{ city.city_name }}</h3>
                     <h4 class="current-city-subheading">{{city.country}}</h4>
-                </div>
-                <div class="container current-city-image">
-                    <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class=" current-city-image">
-                </div>
+                    <img src="{{city.city_image}}" alt="image of {{city.city_name}}" class=" container current-city-image">
+                </div> 
             </figure>
         </div>
         <a class="btn-floating btn-large waves-effect waves-light open-create-post modal-trigger" href="#modal2"><i class="material-icons cities-detail-buttons">add</i></a>
 
+        {% if posts %}
             {% for post in posts %}
             <div class="col s12">
                 <div class="card horizontal post-card-container">
@@ -62,6 +62,20 @@
                 </div>
             </div>
             {% endfor %}
+        {% else %}
+            <div class="col s12 m12 l12">
+                <div class="card horizontal post-card-container">
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <h4 class="post-title-card">No Posts for this city yet!</h4>
+                            <div class="post-description-text">
+                                <p class="truncate">be the first to add a post!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
 
     </article>
         <div class="new-post modal" id="modal2">
@@ -78,7 +92,12 @@
 <script>
     // Materialize methods
     M.Modal.init(modal2);
+        const allCities = document.querySelector('.all-cities-container');
+        const currentCity = document.querySelector('.current-city-container');
+        allCities.style.height = currentCity.style.height;
+
     M.FormSelect.init(id_user)
     M.FormSelect.init(id_city)
+
 </script>
 {% endblock %}
