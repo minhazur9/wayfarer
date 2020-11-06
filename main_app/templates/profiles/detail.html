@@ -12,23 +12,28 @@
         <div class="card-action">
         <div class="dashboard-card-grid card-content">
         <div class="dashboard-card-left">
-            {% if profile.full_name %}
-            <p>Full Name: {{profile.full_name}}</p>
+        <div>
+        {% if profile.full_name %}
+            <p>Full Name: <span>{{profile.full_name}}</span> </p>
             {% else %}
-            <p>Full Name: Not Specified</p>
+            <p>Full Name: <span>Not Specified</span> </p>
             {% endif %}
             {% if profile.current_city %}
-            <p>Current City: {{ profile.current_city }}</p>
+            <p>Current City: <span>{{ profile.current_city }}</span> </p>
             {% else %}
-            <p>Current City: Not Specified</p>
+            <p>Current City: <span>Not Specified</span> </p>
             {% endif %}
-            <p>Joined: {{ profile.join_date }}</p>
-            created {{comments.count}} 
-        {% if comments.count == 1 %}
-        comment
+        </div>
+        <div>
+        <p>Joined: <span>{{ profile.join_date }}</span> </p>
+            <p>{{ profile.user.username }} Has Made {{comments.count}} 
+            {% if comments.count == 1 %}
+        comment</p>
         {% else %}
-        comments
+        comments</p>
         {% endif %}
+        </div>
+
             
         </div>
           <div class="dashboard-img-container">
@@ -39,20 +44,19 @@
         </div>
         <div class="card-action">
         <h4>Recent Posts</h4>
-        <div class="dashboard-posts">
+<table class="dashboard-posts">
         {% for post in posts %}
-        <div>
-        Post Titled: 
-        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a> 
-        In: 
-        <a href="{% url 'city_detail' post.city.id %}">{{ post.city }}</a>
-        </div>
+        <tr>
+        <th>Post Name: </th> 
+        <td><a  class="truncate" href="{% url 'post_detail' post.id %}">{{ post.title }}</a> </td>
+         <th>In: </th> 
+        <td><a href="{% url 'city_detail' post.city.id %}">{{ post.city }}</a></td>
+        </tr>
+
+        
         
         {% endfor %}
-        </div>
-        
-          
-        </div>
+        </table>
       </div>
     </div>
   </div>
