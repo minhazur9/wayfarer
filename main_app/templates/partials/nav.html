@@ -1,17 +1,27 @@
-
     <nav>
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Logo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-    {% if user.is_authenticated %}
-        <li><a href="{% url 'my_profile' %}">{{request.user.username}}</a></li>
-        <li><a href="{% url 'logout' %}">Log Out</a></li>
-    {% else %}
-        <li><a href="{% url 'signup' %}">Sign Up</a></li>
-        <li><a href="{% url 'login' %}">Log In</a></li>
-    {% endif %}
-        <li><a href="{% url 'city_index' %}">All Cities</a></li>
+        <div class="nav-wrapper">
+        <a href="/" class="brand-logo"><img src="../../static/images/WAYFARER-final.png" alt="wayfarer logo"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'my_profile' %}" >{{request.user.username}}</a></li>
+                <li><a href="{% url 'city_index' %}">All Cities</a></li>
+                <li><a href="{% url 'logout' %}" class="waves-effect waves-light btn">Log Out</a></li>
+            {% else %}
+                <li><a href="{% url 'signup' %}" class="waves-effect waves-light btn">Sign Up</a></li>
+                <li><a href="{% url 'login' %}" class="waves-effect waves-light btn">Log In</a></li>
+            {% endif %}
         </ul>
-    </div>
+        </div>
     </nav>
 
+    <ul class="sidenav" id="mobile-demo">
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'my_profile' %}" >{{request.user.username}}</a></li>
+            <li><a href="{% url 'city_index' %}">All Cities</a></li>
+            <li><a href="{% url 'logout' %}" class="waves-effect waves-light btn">Log Out</a></li>
+        {% else %}
+            <li><a href="{% url 'signup' %}" class="waves-effect waves-light btn">Sign Up</a></li>
+            <li><a href="{% url 'login' %}" class="waves-effect waves-light btn">Log In</a></li>
+        {% endif %}
+    </ul>

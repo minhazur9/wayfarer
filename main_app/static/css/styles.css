@@ -17,11 +17,14 @@ main {
     flex: 1 0 auto;
 }
 
+/* ---------------------------------------------------
+                    STATIC THINGS (nav, buttons, footer)               
+--------------------------------------------------- */
 .btn {
     background-color: var(--accent-color);
 }
 
-.nav {
+nav {
     background-color: var(--primary-color);
 }
 .brand-logo img {
@@ -41,12 +44,15 @@ main {
     padding-bottom: 2vh;
     padding-right: 2vh;
 }
+a {
+    color: var(--accent-color);
+}
 .hidden {
     display: none;
 }
 
 /* ---------------------------------------------------
-                     ABOUT PAGE                
+                    ABOUT PAGE                
 --------------------------------------------------- */
 
 .about-container {
@@ -66,7 +72,7 @@ main {
 
 
 /* ---------------------------------------------------
-                     ALL CITIES PAGE                
+                    ALL CITIES PAGE                
 --------------------------------------------------- */
 
 .all-cities-page-section {
@@ -81,7 +87,7 @@ main {
     margin: auto;
 }
 /* ---------------------------------------------------
-                     CURRENT CITY PAGE               
+                    CURRENT CITY PAGE               
 --------------------------------------------------- */
 .messages{
     display: flex;
@@ -123,8 +129,13 @@ main {
     text-align: center;
 }
 
+.post-link {
+    background-color: transparent;
+}
+
 .all-cities-container a {
     color: black;
+    
 }
 
 .row .col.s12.current-city-container {
@@ -203,9 +214,9 @@ main {
     color: #9E9E9E;
 }
 
-.post-card-container a{
-    background-color: var(--accent-color) !important;
-}
+/* .post-card-container a{
+    background-color: var(--accent-color); !important;
+} */
 
 .all-cities-image {
     padding: 10px !important;
@@ -229,7 +240,66 @@ main {
     overflow: auto !important;
 }
 /* ---------------------------------------------------
-                     LANDING                
+                    COMMENTS                
+--------------------------------------------------- */
+.post-comments{
+    padding: 2vh;
+    margin: 2rem;
+}
+
+.post-card{
+    color: black;
+    height: 100vh;
+}
+
+.post-container {
+    background-color: var(--secondary-color);
+    border: 5px solid #F9F9F9;
+    padding: 2vh;
+    height: 100vh;
+}
+
+.post-title {
+    color: white;
+}
+
+.post-content {
+    background-color: white;
+    padding: 2vh;
+    margin-bottom: 2vh;
+}
+
+.comments-container {
+    background-color: var(--secondary-color);
+    border: 5px solid #F9F9F9;
+    padding: 2vh;
+    height: 100vh;
+    color: black;
+}
+
+.comment-content {
+    background-color: rgba(236, 235, 235, 1);
+    padding: 2%;
+    margin-bottom: 3%;
+} 
+
+.comment-btn {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4%;
+}
+
+.edit-btn {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-comment {
+    margin: 0 1vh;
+}
+
+/* ---------------------------------------------------
+                    LANDING                
 --------------------------------------------------- */
 /* TOP HALF */
 .carousel_{
@@ -372,7 +442,7 @@ main {
     }
 }
 
-/* ---------------------------------------------------
+
                 MY PROFILE / DASHBOARD                
 --------------------------------------------------- */
 p span{
