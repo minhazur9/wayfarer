@@ -8,15 +8,16 @@ Home
 <button class="carousel__button carousel-left hidden"><i class="material-icons">arrow_back</i></button>
 <div class="carousel__track-container">
     <ul class="carousel__track">
+    {% for city in cities %}
     <li class="carousel__slide current-slide">
-    <img class="carousel__img" src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80" alt="">
+    <img class="carousel__img" src="{{ city.city_image }}" alt="Picture of {{ city.city_name }}">
+    <div class="carousel-overlay">
+        <div class="carousel-message">
+            <h2>{{ city.city_name }}</h2>
+        </div>
+    </div>
     </li>
-    <li class="carousel__slide">
-    <img class="carousel__img" src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
-    </li>
-    <li class="carousel__slide">
-    <img class="carousel__img" src="https://images.unsplash.com/photo-1517141772911-756dc840a94f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1188&q=80" alt="">
-    </li>
+    {% endfor %}
     </ul>
 </div>
 <button class="carousel__button carousel-right"><i class="material-icons">arrow_forward</i></button>
@@ -25,11 +26,14 @@ Home
 <button class="carousel_indicator current-slide"></button>
 <button class="carousel_indicator"></button>
 <button class="carousel_indicator"></button>
+<button class="carousel_indicator"></button>
 </div>
 
 </section>
 
-<section class="landing-grid row">
+<section class="landing-grid">
+<h3>What is Wayfarer?</h3>
+    <div class="row container">
     <div class="landing-grid-item col s12 m4">
         <h4>Title</h4>
         <i class="medium material-icons">accessibility</i>
@@ -45,6 +49,8 @@ Home
         <i class="medium material-icons">train</i>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ipsam, eaque ipsum dolore repellat dolores asperiores autem eveniet deleniti </p>
     </div>
+    </div>
+    
 
 </section>
 

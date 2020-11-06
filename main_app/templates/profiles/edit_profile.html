@@ -3,12 +3,16 @@
 {% endblock %}
 {% block content %}
 <div class="container">
-<h1>{{ request.user.username }}</h1>
+
 <div class="card">
-<form method="POST">
+<form class="edit_profile_form" method="POST">
+<div class="dashboard-img-container">
+          <img class="dashboard-prof-img" src="{{ request.user.profile.user_image }}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
+        <h2>{{ request.user.username }}</h2>
+        </div>
 {% csrf_token %}
 {{form.as_p}}
-<input type="submit" value="Update">
+<button class="btn cities-detail-buttons waves-effect waves-green" type="submit">Update</button>
 </form>
 
 </div>

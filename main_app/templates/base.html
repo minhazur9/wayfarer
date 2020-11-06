@@ -19,7 +19,7 @@
     <header class="navbar-fixed">
         <nav class="nav">
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo">Logo</a>
+                <a href="/" class="brand-logo "><img src="{% static 'images/WAYFARER-final.png' %}" alt=""></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if user.is_authenticated %}
                 <li><a href="{% url 'my_profile' %}" >{{request.user.username}}</a></li>
