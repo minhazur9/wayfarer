@@ -24,6 +24,7 @@ if(track){
         track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
         currentSlide.classList.remove('current-slide');
         targetSlide.classList.add('current-slide');
+    
     }
 
     const updateDots = (currentDot, targetDot) => {
@@ -76,7 +77,6 @@ if(track){
         const currentDot = dotsNav.querySelector('.current-slide');
         const targetIndex = dots.findIndex(dot => dot === targetDot);
         const targetSlide = slides[targetIndex];
-
         moveToSlide(track, currentSlide, targetSlide);
         updateDots(currentDot, targetDot);
         hideShowArrows(slides, prevButton, nextButton, targetIndex);
