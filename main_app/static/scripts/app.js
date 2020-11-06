@@ -4,7 +4,6 @@ const newPostBtn = document.querySelector('.new-post-btn');
 const newPost = document.querySelector('.new-post');
 const track = document.querySelector('.carousel__track');
 
-
 //---------------------------------------------------
 //                     CAROUSEL                
 //---------------------------------------------------
@@ -115,22 +114,41 @@ if(confirmDelete){
     });
 }
 
+//---------------------------------------------------
+//                     COMMENT FORM               
+//---------------------------------------------------
 
 const addComment = document.querySelector('.add-comment');
 const commentForm = document.querySelector('.comment-form');
 const cancelComment = document.querySelector('.cancel-comment')
+const editComment = document.querySelector('.edit-comment')
 
 if(addComment) {
 addComment.addEventListener('click', () => {
-    addComment.classList.add('hidden');
-    commentForm.classList.remove('hidden');
+    addComment.classList.toggle('hidden');
+    commentForm.classList.toggle('hidden');
 })
 
 cancelComment.addEventListener('click', () => {
     commentForm.querySelector('textarea').value = "";
-    commentForm.classList.add('hidden');
-    addComment.classList.remove('hidden');
+    commentForm.classList.toggle('hidden');
+    addComment.classList.toggle('hidden');
+
 })
+
+$('.edit-comment').on('click', function() {
+    content = $(this).prev().prev().text()
+    $(this).prev().toggleClass('hidden')
+    $(this).prev().find("textarea").val(content)
+    $(this).prev().prev().toggleClass('hidden')
+    $(this).toggleClass('hidden')
+    
+});
+
+$('.cancel-edit-comment').on('click', function() {
+    console.log($(this).parent().toggleClass('hidden'))
+    $(this).parent().prev().toggleClass('hidden')
+    $(this).parent().next().toggleClass('hidden');
+})
+
 }
-
-
