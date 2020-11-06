@@ -89,6 +89,20 @@ a {
 /* ---------------------------------------------------
                     CURRENT CITY PAGE               
 --------------------------------------------------- */
+.messages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: seagreen;
+}
+.success {
+    padding-top: 10px;
+    margin: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #d4edda;
+    border: #c3e6cb 1px solid;
+}
 
 .city-detail-container {
     margin: 1rem;
@@ -111,6 +125,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    /* justify-content: flex-start; */
     text-align: center;
 }
 
@@ -184,8 +199,15 @@ a {
     overflow: hidden;
 }
 
+.post__image__container{
+    width: 200px;
+    height: 200px;
+}
+
+
 .post__image{
     border: #F0DE87 3px solid;
+
 }
 
 .post-card-container p {
@@ -312,9 +334,9 @@ a {
     width: 100%;
 }
 .carousel-overlay{
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
-    height: 100%;
+    height: 65vh;
     object-fit: cover;
     background-color: rgba(0,0,0,.3);
     z-index: 2;
@@ -357,10 +379,10 @@ a {
 }
 
 .carousel-left{
-    left: -25px;
+    left: -35px;
 }
 .carousel-right{
-    right: -25px;
+    right: -30px;
 }
 .carousel_nav{
     display: flex;
@@ -420,12 +442,7 @@ a {
     }
 }
 
-/* ---------------------------------------------------
-                USER SHOW                
---------------------------------------------------- */
 
-
-/* ---------------------------------------------------
                 MY PROFILE / DASHBOARD                
 --------------------------------------------------- */
 p span{
