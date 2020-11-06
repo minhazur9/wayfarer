@@ -137,8 +137,8 @@ a {
     flex: 1 1 20em;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    /* justify-content: flex-start; */
+    /* justify-content: space-evenly; */
+    justify-content: flex-start;
     text-align: center;
 }
 
@@ -297,6 +297,7 @@ a {
     margin-bottom: 2vh;
 }
 
+
 .comments-container {
     background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
@@ -311,6 +312,7 @@ a {
     background-color: rgba(236, 235, 235, 1);
     padding: 2%;
     margin-bottom: 3%;
+    margin-top: 2rem;
 } 
 .top-comment{
     display: flex;
@@ -461,7 +463,6 @@ a {
 
 /* BOTTOM HALF */
 .landing-grid{
-    background-color: white;
     text-align: center;
     height: 35vh;
     display: flex;
