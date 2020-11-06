@@ -49,6 +49,10 @@ My Post
        <button type= "button" class="btn cancel-edit-comment">Cancel</button>
     </form>
     <button type="button" class="edit-comment btn">Edit</button>
+    <form action="{% url 'delete_comment' post.id comment.id %}" method="POST" class="delete-comment-form">
+    {% csrf_token %}
+       <button type="submit" class="btn red">Delete</button>
+    </form>
     {% endif %}
     {% endfor %}
     </ul>
