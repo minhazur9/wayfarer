@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-My Post
+{{ post.title }}
 {% endblock %}
 
 {% block content %}
@@ -53,8 +53,14 @@ My Post
                         </h4>
                             {% for comment in comments %}
                         <div class="comment-content">
+                        <div class="top-comment" >
+                                <img src="{{ comment.user.profile.user_image }}" alt="{{ comment.user.username }}'s picture'" onerror="this.src='{% static 'images/default_post_img.png' %}';">
                                 <h5 class="comment"><a href="{% url 'profile_detail' user.username %}">{{comment.user.username}}</a> says:</h5>
+                        </div>
+                                <div class="card-action">
                                 <p class="comment-content">{{comment.content}}</p>
+                                </div>
+                                
                             {% if request.user == comment.user %}
                                 <form action="{% url 'edit_comment' post.id comment.id %}" method="POST" class="hidden edit-comment-form">
                                 {% csrf_token %}
