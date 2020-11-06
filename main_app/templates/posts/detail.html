@@ -55,7 +55,7 @@
                         <div class="comment-content">
                         <div class="top-comment" >
                                 <img src="{{ comment.user.profile.user_image }}" alt="{{ comment.user.username }}'s picture'" onerror="this.src='{% static 'images/default-user-img.png' %}';">
-                                <h5 class="comment"><a href="{% url 'profile_detail' user.username %}">{{comment.user.username}}</a> says:</h5>
+                                <h5 class="comment"><a href="{% url 'profile_detail' comment.user.username %}">{{comment.user.username}}</a> says:</h5>
                         </div>
                                 <div class="card-action">
                                 <p class="comment-content">{{comment.content}}</p>

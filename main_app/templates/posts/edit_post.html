@@ -3,6 +3,7 @@
 Edit Post
 {% endblock %}
 {% block content %}
+<div class="all-purpose-container container card">
 <div class="container">
     <h1>{{post.title}}</h1>
     <div class="profile-card">
@@ -11,7 +12,7 @@ Edit Post
             {{form.as_p}}
         <input type="submit" value="Update" class="btn">
         </form>
-
     </div>
+</div>
 </div>
 {% endblock %}
