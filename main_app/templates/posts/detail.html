@@ -1,50 +1,40 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}
 My Post
 {% endblock %}
 
 {% block content %}
-<div class="container post-detail">
-<section class="row">
-    <div class="post-detail-container col s12 m12 l8">
-        <div class="current-post-container">
-            {% comment %} <div class="comments-bgs"> {% endcomment %}
-                <h1>{{ post.title }}</h1>
-                <h6> By: <a href="{% url 'profile_detail' user.username %}">{{post.user.username}}</a></h6>
-
-                {{ post.description }}
-                {{ post.photo }}
-                <h6>{{ post.city }}</h6>
-
-                <!-- Edit/Delete Buttons-->
-                {% if request.user == post.user %}
-                <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
-                <button id="confirm-delete" class="btn">Delete Post</button>
-                <form action="{% url 'delete_post' post.id %}" class="hidden delete-form" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="btn">Click to Confirm Deletion</button>
-                </form>
-                {% endif %}
-            {% comment %} </div> {% endcomment %}
-        </div>
-    </div>
-
-    <article class="comments-container col s12 m12 l4">
-        <!-- comments -->
-        <div class='all-comments-cards'>
-            <div class="comments-bgs">
-                <h4>{{comments.count}} comments</h4>
-                {% for comment in comments %}
-                <div class="single-comment">
-                    <a href="{% url 'profile_detail' user.username %}"><h6 class="comment">{{comment.user.username}}</h6></a>
-                    <p class="comment-content">{{comment.content}}</p>
+<section class="container">
+    <div class="post-details col l7">
+                <div class="post-card">
+                    <div class="post-image">
+                        <img class="post__image" width="200px" height="200px" src="{{ post.photo }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                    </div>
+                    <div class="card-content">
+                        <span class="post-title"><h1>{{ post.title }}</h1></span>
+                        <h6> By: <a href="{% url 'profile_detail' user.username %}">{{post.user.username}}</a></h6>
+                        {{ post.description }}
+                        {{ post.photo }}
+                        <h2>post from: {{ post.city }}</a></h2>
+                    </div>
                 </div>
-                {% endfor %}
             </div>
-        </div>
+
+        <!-- Edit/Delete Buttons-->
+        {% if request.user == post.user %}
+        <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
+        <button id="confirm-delete" class="btn">Delete Post</button>
+        <form action="{% url 'delete_post' post.id %}" class="hidden delete-form" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn">Click to Confirm Deletion</button>
+        </form>
+        {% endif %}
+
+
+    <article class="">
+        
         <!-- add comment-->
         <button class="add-comment btn">Add Comment</button>
         <form action="" method="POST" class="hidden comment-form">
@@ -53,8 +43,16 @@ My Post
             <button type="submit" class="btn">Submit</button>
             <button type= "button" class="btn cancel-comment">Cancel</button>
         </form>
+
+
+
+        <!-- comments -->
+        <h4>{{comments.count}} comments</h4>
+        {% for comment in comments %}
+        <h4 class="comment">{{comment.user.username}}</h4>
+        <p class="comment-content">{{comment.content}}</p>
+        {% endfor %}
     </article> 
 </section>
-</div>
 
 {% endblock %}

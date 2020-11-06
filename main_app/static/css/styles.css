@@ -24,7 +24,7 @@ main {
     background-color: var(--accent-color);
 }
 
-.nav {
+nav {
     background-color: var(--primary-color);
 }
 .brand-logo img {
@@ -45,7 +45,7 @@ main {
     padding-right: 2vh;
 }
 a {
-    color: white;
+    color: var(--accent-color);
 }
 .hidden {
     display: none;
@@ -163,6 +163,7 @@ a {
     padding: 2vh;
     margin: 2rem;
     width: 100%;
+    flex-wrap: wrap;
 }
 .post-detail-container{
     background-color: var(--secondary-color);
