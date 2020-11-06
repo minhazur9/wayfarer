@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
+Edit Profile
 {% endblock %}
 {% block content %}
 <div class="container">
 
 <div class="card row edit_profile_container">
+<h1>Edit Profile</h1>
 <form class="edit_profile_form col s12 m8" method="POST">
 
 {% csrf_token %}
