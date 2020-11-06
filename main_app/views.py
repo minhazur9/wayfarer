@@ -36,7 +36,6 @@ def profile_detail(request, username):
     profile = Profile.objects.get(user=user)
     comments = Comment.objects.filter(user=user)
     posts = Post.objects.filter(user=user).order_by('-id')
-    print(posts.__dict__, '-------------------HERE')
     context = {
         'profile': profile,
         'comments': comments,
@@ -98,6 +97,7 @@ def city_detail(request, city_id):
 # ----------------------- Post routes
 def post_detail(request, post_id):
     post = Post.objects.get(id=post_id)
+    print(post.__dict__, '-------------------HERE')
     comments = Comment.objects.filter(post=post_id).order_by("-id")
     city = City.objects.get(post=post_id)
     if request.method == 'POST':
