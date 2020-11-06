@@ -157,7 +157,8 @@ def edit_comment(request, post_id, comment_id):
             comment_form = CommentForm(request.POST, instance=comment)
             updated_comment = comment_form.save()
             return redirect('post_detail', post_id)
-      
+
+@login_required    
 def delete_comment(request, post_id, comment_id):
     post = Post.objects.get(id=post_id)
     comment = Comment.objects.get(id=comment_id)
