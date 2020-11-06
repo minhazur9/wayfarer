@@ -52,7 +52,8 @@ def my_profile(request):
     context = {
         'my_profile': my_profile,
         'posts': posts,
-        'comments': comments
+        'comments': comments,
+
     }
     return render(request,'profiles/my_profile.html', context)
 
@@ -60,7 +61,7 @@ def my_profile(request):
 def edit_profile(request):
     profile = Profile.objects.get(user_id=request.user.id)
     if request.method == 'POST':
-        profile_form = ProfileForm(request.POST, instance=profile)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
         if profile_form.is_valid():
             updated_profile = profile_form.save()
             return redirect('my_profile')
@@ -99,7 +100,7 @@ def edit_post(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.user == post.user:
         if request.method == 'POST':
-            post_form = PostForm(request.POST, instance=post)
+            post_form = PostForm(request.POST,request.FILES, instance=post)
             if post_form.is_valid():
                 updated_post = post_form.save()
                 return redirect('post_detail', updated_post.id)
@@ -139,7 +140,7 @@ def city_detail(request, city_id):
     posts = Post.objects.filter(city=city).order_by('-id')
 
     if request.method == 'POST':
-        post_form = PostForm(request.POST)
+        post_form = PostForm(request.POST, request.FILES)
         if post_form.is_valid():
             new_post = post_form.save(commit=False)
             new_post.user = request.user
@@ -149,7 +150,13 @@ def city_detail(request, city_id):
             return redirect('city_detail', city_id)
     else:
         form = PostForm()
-        return render(request, 'cities/detail.html', {'city': city, 'posts': posts, 'form': form, 'cities': cities})
+        context = {
+            'city': city,
+            'posts': posts,
+            'form': form,
+            'cities': cities
+        }
+        return render(request, 'cities/detail.html', context)
 
 @login_required
 def edit_comment(request, post_id, comment_id):

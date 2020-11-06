@@ -45,7 +45,7 @@
             <div class="col s12">
                 <div class="card horizontal post-card-container">
                     <div class="card-image">
-                        <img class="post__image" width="200px" height="200px" src="{{ post.photo }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                        <img class="post__image" width="200px" height="200px" src="{{post.photo.url}}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
                         <!-- CHANGE THIS TO POST IMG -->
                     </div>
                     <div class="card-stacked">
@@ -79,7 +79,7 @@
 
     </article>
         <div class="new-post modal" id="modal2">
-            <form method="POST" class="modal-content">
+            <form method="POST" class="modal-content" enctype='multipart/form-data'>
                 {% csrf_token %}
                 {{ form.as_p }}
                 

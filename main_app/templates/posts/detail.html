@@ -11,7 +11,7 @@ My Post
 <div>
     {{ post.title }}
     {{ post.description }}
-    {{ post.photo }}
+    <img src="{{ post.photo.url }}" alt="" onerror="this.src='{% static 'images/default_post_img.png' %}';">
     <h2>{{ post.city }}</h2>
     {% if request.user == post.user %}
     <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>

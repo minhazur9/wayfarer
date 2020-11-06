@@ -6,7 +6,7 @@ from django.utils import timezone
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     full_name = models.CharField(max_length=255, null=True) 
-    user_image = models.CharField(max_length=255)
+    user_image = models.ImageField(upload_to='user/images', null=True)
     current_city = models.CharField(max_length=255)
     join_date = models.DateTimeField(auto_now_add=True)
 
@@ -25,7 +25,7 @@ class City(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(max_length=255)
-    photo = models.CharField(max_length=255, blank=True)
+    photo = models.ImageField(upload_to='posts/images', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=True)
 

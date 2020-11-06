@@ -9,8 +9,7 @@ class ProfileForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title' , 'description' , 'photo', 'user' , 'city']
-        exclude = ['user', 'city']
+        fields = ['title' , 'description' , 'photo']
 
 class CommentForm(forms.ModelForm):
     class Meta:
