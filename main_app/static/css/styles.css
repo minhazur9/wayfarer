@@ -51,10 +51,53 @@ a {
     display: none;
 }
 
+/* ---------------------------------------------------
+                     ABOUT PAGE                
+--------------------------------------------------- */
+
+.about-container {
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-subheading {
+    color: var(--accent-color);
+}
+
+ .about-img {
+    max-height: 12rem;
+}   
+
+
+/* ---------------------------------------------------
+                     ALL CITIES PAGE                
+--------------------------------------------------- */
+
+.all-cities-page-section {
+    margin-top: 1.5rem;
+}
+
+.all-cities-title {
+    color: black;
+}
+
+.city-title-all-cities {
+    margin: auto;
+}
+/* ---------------------------------------------------
+                     CURRENT CITY PAGE               
+--------------------------------------------------- */
+
 .city-detail-container {
     margin: 1rem;
-    /* height: 100vh; */
     flex-wrap: wrap;
+    display: flex;
+}
+
+.city-detail-container h3 {
+    color: black;
 }
 
 .cities-detail-buttons {
@@ -64,8 +107,11 @@ a {
 .all-cities-container {
     background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
-    /* object-fit: cover; */
-    height: 100%;
+    flex: 1 1 20em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
 }
 
 .all-cities-container a {
@@ -81,11 +127,12 @@ a {
     flex-direction: column;
     align-items: center;
     border: 5px solid #F9F9F9;
+    flex: 2 2 20em;
 }
 
 .open-create-post {
     align-self: flex-end;
-    margin-top: .25rem;
+    margin-top: 1rem;
     margin-bottom: .5rem;
     margin-right: 1rem;
 }
@@ -99,19 +146,25 @@ a {
 }
 
 .current-city-image {
-    margin-right: 1rem;
+    margin-right: 3.5rem;
+    margin-top: 1rem;
     padding-left: 20px;
     align-self: flex-end;
+    margin-left: 1rem;
+    width: 100% !important;
 
 }
 
 .current-city-title {
     margin-bottom: .5rem;
+    margin-left: 2.5rem;
     text-align: center;
 }
 
 .current-city-subheading {
     margin: 0;
+    margin-left: 2.5rem;
+
     font-size: 20px;
     color: #9E9E9E;
 }
@@ -147,39 +200,49 @@ a {
     padding: 0 10px 0 10px;
 }
 
+
 .post-description-text {
     overflow-wrap: break-word;
+}
 
+.all-cities-card-title {
+    color: var(--primary-color) !important;
 }
 
 .card-stacked {
     overflow: auto !important;
 }
-
 /* ---------------------------------------------------
                     COMMENTS                
 --------------------------------------------------- */
-.post-detail{
+.post-comments{
     padding: 2vh;
     margin: 2rem;
-    width: 100%;
-    flex-wrap: wrap;
 }
-.post-detail-container{
-    background-color: var(--secondary-color);
+.post-card{
     color: black;
     height: 100vh;
+}
+.post-container {
+    background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
+    padding: 2vh;
+    height: 100vh;
 }
 .comments-container {
     background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
+    padding: 2vh;
     height: 100vh;
     color: black;
 }
+
+.post-title {
+    color: white;
+} 
 .single-comment {
     background-color: rgba(236, 235, 235, 0.7);
-}
+} 
 
 /* ---------------------------------------------------
                     LANDING                
@@ -384,7 +447,8 @@ p span{
     margin-top: 10vh;
 }
 
-
-
-
-
+@media only screen and (max-width: 900px) {
+    .all-cities-card-title {
+        font-size: 25px;
+    }
+} 
