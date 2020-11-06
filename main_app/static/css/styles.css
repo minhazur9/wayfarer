@@ -7,7 +7,6 @@
 body {
     background-color: #F9F9F9;
     font-family: 'Open Sans' , sans-serif;
-
     display: flex;
     min-height: 100vh;
     color: var(--primary-color);
@@ -20,6 +19,9 @@ main {
 
 }
 
+/* ---------------------------------------------------
+                    STATIC THINGS (nav, buttons, footer)               
+--------------------------------------------------- */
 .btn {
     background-color: var(--accent-color);
 }
@@ -35,6 +37,9 @@ main {
 .right {
     padding-bottom: 2vh;
     padding-right: 2vh;
+}
+a {
+    color: white;
 }
 .hidden {
     display: none;
@@ -59,7 +64,6 @@ main {
 
 .all-cities-container a {
     color: black;
-
 }
 
 .row .col.s12.current-city-container {
@@ -141,7 +145,31 @@ main {
 }
 
 /* ---------------------------------------------------
-                     LANDING                
+                    COMMENTS                
+--------------------------------------------------- */
+.post-detail{
+    padding: 2vh;
+    margin: 2rem;
+    width: 100%;
+}
+.post-detail-container{
+    background-color: var(--secondary-color);
+    color: black;
+    height: 100vh;
+    border: 5px solid #F9F9F9;
+}
+.comments-container {
+    background-color: var(--secondary-color);
+    border: 5px solid #F9F9F9;
+    height: 100vh;
+    color: black;
+}
+.single-comment {
+    background-color: rgba(236, 235, 235, 0.7);
+}
+
+/* ---------------------------------------------------
+                    LANDING                
 --------------------------------------------------- */
 /* TOP HALF */
 .carousel_{
@@ -226,7 +254,7 @@ main {
 }
 
 /* ---------------------------------------------------
-                     USER SHOW                
+                USER SHOW                
 --------------------------------------------------- */
 
 
