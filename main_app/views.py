@@ -9,7 +9,7 @@ from .models import *
 
 # ----------------------- Static routes
 def home(request):
-    cities = City.objects.all()
+    cities = City.objects.all().order_by("?")
     return render(request, 'home.html', {'cities': cities})
 
 def about(request):
