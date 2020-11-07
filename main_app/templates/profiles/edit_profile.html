@@ -14,7 +14,11 @@ Edit Profile
 <button class="btn cities-detail-buttons waves-effect waves-green col s12" type="submit">Update</button>
 </form>
 <div class="dashboard-img-container col s12 m4">
+{% if  %}
           <img class="dashboard-prof-img" src="{{ form.user_image.value.url}}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
+  {% else %}
+        <img class="dashboard-prof-img" src="https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
+  {% endif %}
         </div>
 
 </div>
