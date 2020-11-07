@@ -44,13 +44,8 @@
             {% for post in posts %}
             <div class="col s12">
                 <div class="card horizontal post-card-container">
-<<<<<<< HEAD
                     <div class="card-image">
                         <img class="post__image" width="200px" height="200px" src="{{post.photo.url}}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
-=======
-                    <div class="card-image post__image__container">
-                        <img class="post__image" width="200px" height="200px" src="{{ post.photo }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
->>>>>>> main
                         <!-- CHANGE THIS TO POST IMG -->
                     </div>
                     <div class="card-stacked">

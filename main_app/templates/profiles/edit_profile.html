@@ -7,23 +7,14 @@ Edit Profile
 <div class="container">
 
 <div class="card row edit_profile_container">
-<<<<<<< HEAD
 <form class="edit_profile_form col s12 m8" method="POST" enctype="multipart/form-data">
-=======
-<h1>Edit Profile</h1>
-<form class="edit_profile_form col s12 m8" method="POST">
->>>>>>> main
 
 {% csrf_token %}
 {{form.as_p}}
 <button class="btn cities-detail-buttons waves-effect waves-green col s12" type="submit">Update</button>
 </form>
 <div class="dashboard-img-container col s12 m4">
-<<<<<<< HEAD
           <img class="dashboard-prof-img" src="{{ form.user_image.value.url}}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
-=======
-          <img class="dashboard-prof-img" src="{{ request.user.profile.user_image }}" alt="" onerror="this.src='{% static 'images/default-user-img.png' %}';">
->>>>>>> main
         </div>
 
 </div>
