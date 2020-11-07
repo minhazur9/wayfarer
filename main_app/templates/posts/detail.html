@@ -10,7 +10,11 @@
         <div class="row">
             <div class="col s12 m12 l7">
                 <div class="post-container">
+                {% if post.photo %}
                     <img class="post__image" width="500px" height="350px" src="{{ post.photo.url }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                {% else %}
+                    <img class="post__image" width="500px" height="350px" src="{% static 'images/default_post_img.png' %}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                {% endif %}
                     <h2 class="post-title"><a href="{% url 'city_detail' city.id %}">{{ post.title }}</a></h2>
                     
                     
@@ -58,7 +62,11 @@
                             {% for comment in comments %}
                         <div class="comment-content">
                         <div class="top-comment" >
+                        {% if comment.user.profile.user_image %}
                                 <img src="{{ comment.user.profile.user_image.url }}" alt="{{ comment.user.username }}'s picture'" onerror="this.src='{% static 'images/default-user-img.png' %}';">
+                        {% else %}
+                                <img src="{% static 'images/default-user-img.png' %}" alt="{{ comment.user.username }}'s picture'" onerror="this.src='{% static 'images/default-user-img.png' %}';">
+                        {% endif %}
                                 <h5 class="comment"><a href="{% url 'profile_detail' comment.user.username %}">{{comment.user.username}}</a> says:</h5>
                         </div>
                                 <div class="card-action">

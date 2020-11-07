@@ -6,7 +6,7 @@ from django.utils import timezone
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     full_name = models.CharField(max_length=255, null=True) 
-    user_image = models.ImageField(upload_to='wayfarer_project/static/user_images', null=True)
+    user_image = models.ImageField(upload_to='wayfarer_project/static/user_images', default='wayfarer_project/static/default-user-image-2.png', null=True)
     current_city = models.CharField(max_length=255)
     join_date = models.DateTimeField(auto_now_add=True)
 
