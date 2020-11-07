@@ -3,10 +3,14 @@
 Sign Up
 {% endblock %}
 {% block content %}
-<h1>Signup</h1>
-<form action="{% url 'signup' %}" method="POST">
-{% csrf_token %}
-{{form.as_p}}
-<input type="submit" value="Signup">
-</form>
+<div class="all-purpose-container  container card">
+<div class="container">
+    <h1>Signup</h1>
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn all-purpose-btn" type="submit" value="Signup">
+    </form>
+</div>
+</div>
 {% endblock content %}

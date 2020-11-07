@@ -17,12 +17,31 @@ main {
     flex: 1 0 auto;
 }
 
+.all-purpose-container{
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.all-purpose-container .container{
+    padding: 2rem;
+}
+
+.all-purpose-btn{
+    width: 100%;
+}
+
+/* ---------------------------------------------------
+                    STATIC THINGS (nav, buttons, footer)               
+--------------------------------------------------- */
 .btn {
     background-color: var(--accent-color);
 }
 
-.nav {
-    background-color: var(--primary-color);
+nav {
+    background-color: var(--secondary-color);
+}
+.nav-wrapper li>a{
+    color: black;
 }
 .brand-logo img {
     height: 48px;
@@ -32,21 +51,25 @@ main {
 }
 
 .page-footer {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     padding-top: 2vh;
     position: relative;
+    color: black;
     top: 20vh;
 }
 .right {
     padding-bottom: 2vh;
     padding-right: 2vh;
 }
+a {
+    color: var(--accent-color);
+}
 .hidden {
     display: none;
 }
 
 /* ---------------------------------------------------
-                     ABOUT PAGE                
+                    ABOUT PAGE                
 --------------------------------------------------- */
 
 .about-container {
@@ -66,7 +89,7 @@ main {
 
 
 /* ---------------------------------------------------
-                     ALL CITIES PAGE                
+                    ALL CITIES PAGE                
 --------------------------------------------------- */
 
 .all-cities-page-section {
@@ -81,8 +104,22 @@ main {
     margin: auto;
 }
 /* ---------------------------------------------------
-                     CURRENT CITY PAGE               
+                    CURRENT CITY PAGE               
 --------------------------------------------------- */
+.messages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: seagreen;
+}
+.success {
+    padding-top: 10px;
+    margin: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #d4edda;
+    border: #c3e6cb 1px solid;
+}
 
 .city-detail-container {
     margin: 1rem;
@@ -104,12 +141,18 @@ main {
     flex: 1 1 20em;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    justify-content: flex-start;
     text-align: center;
+}
+
+.post-link {
+    background-color: transparent;
 }
 
 .all-cities-container a {
     color: black;
+    
 }
 
 .row .col.s12.current-city-container {
@@ -168,22 +211,44 @@ main {
     margin-top: 0 !important;
 }
 
+.post-author-container{
+    display: flex;
+    justify-content: flex-end;
+}
+.post-link p {
+    margin: 0;
+    padding: 0;
+}
+.post-user-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: #F0DE87 3px solid;
+}
+
 .post-card-container {
     padding: 10px;
     overflow: hidden;
 }
 
+.post__image__container{
+    width: 200px;
+    height: 200px;
+}
+
+
 .post__image{
     border: #F0DE87 3px solid;
+
 }
 
 .post-card-container p {
     color: #9E9E9E;
 }
 
-.post-card-container a{
-    background-color: var(--accent-color) !important;
-}
+/* .post-card-container a{
+    background-color: var(--accent-color); !important;
+} */
 
 .all-cities-image {
     padding: 10px !important;
@@ -207,7 +272,91 @@ main {
     overflow: auto !important;
 }
 /* ---------------------------------------------------
-                     LANDING                
+                    COMMENTS                
+--------------------------------------------------- */
+.post-comments{
+    padding: 2vh;
+    margin: 2rem;
+}
+
+.post-card{
+    color: black;
+    height: 100vh;
+}
+
+.post-container {
+    background-color: var(--secondary-color);
+    border: 5px solid #F9F9F9;
+    padding: 2vh;
+    height: 100vh;
+}
+
+.post-title {
+    color: white;
+}
+
+.post-content {
+    background-color: white;
+    padding: 2vh;
+    margin-bottom: 2vh;
+}
+
+
+.comments-container {
+    background-color: var(--secondary-color);
+    border: 5px solid #F9F9F9;
+    padding: 2vh;
+    height: 100vh;
+    color: black;
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(236, 235, 235, 1);
+    padding: 2%;
+    margin-bottom: 3%;
+    margin-top: 2rem;
+} 
+.top-comment{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+.comment-content img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: #F0DE87 3px solid;
+}
+
+.comment-btn {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4%;
+}
+
+.edit-btn {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-comment {
+    margin: 0 1vh;
+}
+.delete-btn-comment{
+    width: 95%;
+}
+.comment-btn-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.comment-btn-container button{
+    width: 40%;
+}
+
+/* ---------------------------------------------------
+                    LANDING                
 --------------------------------------------------- */
 /* TOP HALF */
 .carousel_{
@@ -242,9 +391,9 @@ main {
     width: 100%;
 }
 .carousel-overlay{
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
-    height: 100%;
+    height: 65vh;
     object-fit: cover;
     background-color: rgba(0,0,0,.3);
     z-index: 2;
@@ -284,13 +433,14 @@ main {
 }
 .carousel__button:hover{
     background-color: var(--secondary-color);
+    cursor: pointer;
 }
 
 .carousel-left{
-    left: -25px;
+    left: -35px;
 }
 .carousel-right{
-    right: -25px;
+    right: -30px;
 }
 .carousel_nav{
     display: flex;
@@ -317,7 +467,6 @@ main {
 
 /* BOTTOM HALF */
 .landing-grid{
-    background-color: white;
     text-align: center;
     height: 35vh;
     display: flex;
@@ -350,14 +499,11 @@ main {
     }
 }
 
-/* ---------------------------------------------------
-                     USER SHOW                
---------------------------------------------------- */
-
 
 /* ---------------------------------------------------
                 MY PROFILE / DASHBOARD                
 --------------------------------------------------- */
+
 p span{
     font-size: .75em;
     margin-left: 10px;
@@ -390,11 +536,13 @@ p span{
 }
 .dashboard-img-container a{
     width: 300px;
+    display: block;
 }
 
 .dashboard-img-container h4{
     text-align: center;
 }
+
 
 /* ---------------------------------------------------
                     Edit profile                

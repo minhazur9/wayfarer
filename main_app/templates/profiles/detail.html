@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
 {{ profile.full_name }}
 {% endblock %}
@@ -37,7 +38,11 @@
             
         </div>
           <div class="dashboard-img-container">
+<<<<<<< HEAD
           <img class="dashboard-prof-img" src="{{ profile.user_image.url}}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
+=======
+          <img class="dashboard-prof-img" src="{{ profile.user_image }}" alt="" onerror="this.src='{% static 'images/default-user-img.png' %}';">
+>>>>>>> main
           </div>
           
         </div>

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}
-My Post
+{{ post.title }}
 {% endblock %}
 
 {% block content %}
+<<<<<<< HEAD
 <h1>{{post.user.username}}</h1>
 <div>
     {{ post.title }}
@@ -56,7 +56,91 @@ My Post
     {% endif %}
     {% endfor %}
     </ul>
+=======
+<div class="post-comments">
+        <div class="row">
+            <div class="col s12 m12 l7">
+                <div class="post-container">
+                    <img class="post__image" width="500px" height="350px" src="{{ post.photo }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                    <h2 class="post-title"><a href="{% url 'city_detail' city.id %}">{{ post.title }}</a></h2>
+                    
+                    
+                    <div class="post-content">
+                    {{ post.description }}
+                    <h5>From: <a href="{% url 'city_detail' city.id %}">{{ post.city }}</a></h5>
+                    </div>
+                    <div class="post-author-container">
+                    <h5>By: <a  class="post-link" href="{% url 'profile_detail' post.user.username %}">                               <p>{{ post.user.username }}</p></a></h5>
+                    </div>
+                    <div class="edit-comment">
+                        {% if request.user == post.user %}
+                        <div class="edit-btn">
+                            <a class="btn" href="{% url 'edit_post' post.id%}">Edit Post</a>
+                            
+                            <form action="{% url 'delete_post' post.id %}" class=" delete-form" method="post">
+                            <button id="confirm-delete" class="btn red edit-comment">Delete Post</button>
+                                {% csrf_token %}
+                                {% comment %} <button type="submit" class="btn red edit-comment">Click to Confirm Deletion</button> {% endcomment %}
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m12 l4">
+                <div class="comments-container">
+                    <div class="card-content">
+                        <button class="add-comment btn">Add Comment</button>
+                        <form action="" method="POST" class="hidden comment-form">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            <button type="submit" class="btn">Submit</button>
+                            <button type= "button" class="btn cancel-comment">Cancel</button>
+                        </form>
+                        <ul class="comment-list">
+                        <h4>{% if comments.count < 1 %}
+                        There are no comments...
+                        {% elif comments.count == 1 %}
+                            {{comments.count}} comment
+                        {% else %}
+                            {{comments.count}} comments
+                        {% endif %}
+                        </h4>
+                            {% for comment in comments %}
+                        <div class="comment-content">
+                        <div class="top-comment" >
+                                <img src="{{ comment.user.profile.user_image }}" alt="{{ comment.user.username }}'s picture'" onerror="this.src='{% static 'images/default-user-img.png' %}';">
+                                <h5 class="comment"><a href="{% url 'profile_detail' comment.user.username %}">{{comment.user.username}}</a> says:</h5>
+                        </div>
+                                <div class="card-action">
+                                <p class="comment-content">{{comment.content}}</p>
+                                </div>
+                                
+                            {% if request.user == comment.user %}
+                                <form action="{% url 'edit_comment' post.id comment.id %}" method="POST" class="hidden edit-comment-form">
+                                {% csrf_token %}
+                                {{form.as_p}}
+                                <div class="comment-btn-container">
+                                <button type="submit" class="btn">Update</button>
+                                <button type= "button" class="btn cancel-edit-comment">Cancel</button>
+                                </div>
+                            </form>
+                            <button type="button" class="edit-comment  btn">Edit</button>
+                        </div>
+                        
+                            <form action="{% url 'delete_comment' post.id comment.id %}" method="POST" class="delete-comment-form">
+                            {% csrf_token %}
+                                <button type="submit" class="delete-btn-comment edit-comment btn red">Delete</button>
+                        </form>
+                     
+                        {% endif %}
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+>>>>>>> main
 </div>
-
 
 {% endblock %}

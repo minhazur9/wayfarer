@@ -106,10 +106,7 @@ if(confirmDelete){
     confirmDelete.addEventListener('click' , () => {
         const input =  confirm('Are you sure you want to delete this post?');
         if (input === true) {
-            deleteForm.classList.toggle('hidden');
-            confirmDelete.classList.toggle('hidden');
-        } else {
-            return alert('You did not delete your post');
+            confirmDelete.setAttribute('type', 'submit')
         }
     });
 }
@@ -121,7 +118,9 @@ if(confirmDelete){
 const addComment = document.querySelector('.add-comment');
 const commentForm = document.querySelector('.comment-form');
 const cancelComment = document.querySelector('.cancel-comment')
-const editComment = document.querySelector('.edit-comment')
+const editComment = document.querySelector('.edit-comment');
+
+
 
 if(addComment) {
 addComment.addEventListener('click', () => {
@@ -133,6 +132,7 @@ cancelComment.addEventListener('click', () => {
     commentForm.querySelector('textarea').value = "";
     commentForm.classList.toggle('hidden');
     addComment.classList.toggle('hidden');
+
 
 })
 
@@ -147,8 +147,11 @@ $('.edit-comment').on('click', function() {
 
 $('.cancel-edit-comment').on('click', function() {
     console.log($(this).parent().toggleClass('hidden'))
-    $(this).parent().prev().toggleClass('hidden')
+    // $(this).parent().prev().toggleClass('hidden');
+
     $(this).parent().next().toggleClass('hidden');
 })
+
+
 
 }

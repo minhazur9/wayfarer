@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
 My Dashboard
 {% endblock %}
@@ -46,9 +47,15 @@ My Dashboard
 
         
         </div>
+        <div>
           <div class="dashboard-img-container">
+<<<<<<< HEAD
           <img class="dashboard-prof-img" src="{{ request.user.profile.user_image.url}}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
           <a class="btn waves-effect waves-green" href="{% url 'edit_profile' %}">Edit Profile</a>
+=======
+            <img class="dashboard-prof-img" src="{{ request.user.profile.user_image }}" alt="" onerror="this.src='{% static 'images/default-user-img.png' %}';">
+            <a class="btn waves-effect waves-green" href="{% url 'edit_profile' %}">Edit Profile</a>
+>>>>>>> main
           </div>
           
         </div>

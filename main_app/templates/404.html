@@ -1,17 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}
-Edit Post
+404
 {% endblock %}
 {% block content %}
 <div class="all-purpose-container container card">
 <div class="container">
-    <h1>{{post.title}}</h1>
+    <h1>404</h1>
     <div class="profile-card">
-        <form method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-        <input type="submit" value="Update" class="btn">
-        </form>
+        <p>Page not found</p>
     </div>
 </div>
 </div>
