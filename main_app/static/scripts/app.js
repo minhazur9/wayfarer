@@ -136,22 +136,27 @@ cancelComment.addEventListener('click', () => {
 
 })
 
-$('.edit-comment').on('click', function() {
-    content = $(this).prev().prev().text()
-    $(this).prev().toggleClass('hidden')
-    $(this).prev().find("textarea").val(content)
-    $(this).prev().prev().toggleClass('hidden')
-    $(this).toggleClass('hidden')
-    
-});
 
-$('.cancel-edit-comment').on('click', function() {
-    console.log($(this).parent().toggleClass('hidden'))
-    // $(this).parent().prev().toggleClass('hidden');
 
-    $(this).parent().next().toggleClass('hidden');
+$('.comment-content').on('click', '.edit-comment', function() {
+    comment = $(this).parent().parent()
+    content = comment.find('.comment-content').text()
+    $(this).hide()
+    comment.find('.comment-content').hide()
+    comment.find('.delete-comment-form').hide()
+    comment.find('.edit-comment-form').show()
+    comment.find('#id_content').text(content)
 })
 
+$('.comment-content').on('click', '.cancel-edit-comment', function() {
+    comment = $(this).parent().parent().parent() 
+    $(this).parent().parent().hide()
+    comment.find('.edit-comment').show()
+    comment.find('.comment-content').show()
+    comment.find('.delete-comment-form').show()
+    comment.find('#id_content').text(content)
+    
+})
 
 
 }

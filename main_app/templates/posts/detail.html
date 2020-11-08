@@ -10,7 +10,11 @@
         <div class="row">
             <div class="col s12 m12 l7">
                 <div class="post-container">
-                    <img class="post__image" width="500px" height="350px" src="{{ post.photo }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                {% if post.photo %}
+                    <img class="post__image" width="500px" height="350px" src="{{ post.photo.url }}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                {% else %}
+                    <img class="post__image" width="500px" height="350px" src="{% static 'images/default_post_img.png' %}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
+                {% endif %}
                     <h2 class="post-title"><a href="{% url 'city_detail' city.id %}">{{ post.title }}</a></h2>
                     
                     
@@ -58,7 +62,11 @@
                             {% for comment in comments %}
                         <div class="comment-content">
                         <div class="top-comment" >
-                                <img src="{{ comment.user.profile.user_image }}" alt="{{ comment.user.username }}'s picture'" onerror="this.src='{% static 'images/default-user-img.png' %}';">
+                        {% if comment.user.profile.user_image %}
+                                <img src="{{ comment.user.profile.user_image.url }}" alt="{{ comment.user.username }}'s picture'" onerror="this.src='{% static 'images/default-user-img.png' %}';">
+                        {% else %}
+                                <img src="{% static 'images/default-user-img.png' %}" alt="{{ comment.user.username }}'s picture'" onerror="this.src='{% static 'images/default-user-img.png' %}';">
+                        {% endif %}
                                 <h5 class="comment"><a href="{% url 'profile_detail' comment.user.username %}">{{comment.user.username}}</a> says:</h5>
                         </div>
                                 <div class="card-action">
@@ -66,7 +74,7 @@
                                 </div>
                                 
                             {% if request.user == comment.user %}
-                                <form action="{% url 'edit_comment' post.id comment.id %}" method="POST" class="hidden edit-comment-form">
+                                <form action="{% url 'edit_comment' post.id comment.id %}" method="POST" class="edit-comment-form">
                                 {% csrf_token %}
                                 {{form.as_p}}
                                 <div class="comment-btn-container">
@@ -74,14 +82,14 @@
                                 <button type= "button" class="btn cancel-edit-comment">Cancel</button>
                                 </div>
                             </form>
+                            <div class="edit-comment-container">
                             <button type="button" class="edit-comment  btn">Edit</button>
-                        </div>
-                        
                             <form action="{% url 'delete_comment' post.id comment.id %}" method="POST" class="delete-comment-form">
                             {% csrf_token %}
                                 <button type="submit" class="delete-btn-comment edit-comment btn red">Delete</button>
                         </form>
-                     
+                            </div>
+                            </div>
                         {% endif %}
                         {% endfor %}
                         </ul>

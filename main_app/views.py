@@ -9,7 +9,7 @@ from .models import *
 
 # ----------------------- Static routes
 def home(request):
-    cities = City.objects.all()
+    cities = City.objects.all().order_by("?")
     return render(request, 'home.html', {'cities': cities})
 
 def about(request):
@@ -52,7 +52,8 @@ def my_profile(request):
     context = {
         'my_profile': my_profile,
         'posts': posts,
-        'comments': comments
+        'comments': comments,
+
     }
     return render(request,'profiles/my_profile.html', context)
 
@@ -60,7 +61,7 @@ def my_profile(request):
 def edit_profile(request):
     profile = Profile.objects.get(user_id=request.user.id)
     if request.method == 'POST':
-        profile_form = ProfileForm(request.POST, instance=profile)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
         if profile_form.is_valid():
             updated_profile = profile_form.save()
             return redirect('my_profile')
@@ -126,7 +127,7 @@ def edit_post(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.user == post.user:
         if request.method == 'POST':
-            post_form = PostForm(request.POST, instance=post)
+            post_form = PostForm(request.POST,request.FILES, instance=post)
             if post_form.is_valid():
                 updated_post = post_form.save()
                 return redirect('post_detail', updated_post.id)
@@ -146,7 +147,43 @@ def delete_post(request, post_id):
         
         return redirect('my_profile')
     else:
-        return redirect('my_profile', {'error_message': error_message})
+        # flash message error
+        return redirect('my_profile')
+
+
+
+
+
+
+def city_index(request):
+    cities = City.objects.all()
+    return render(request, 'cities/index.html', {'cities': cities})
+
+@login_required
+def city_detail(request, city_id):
+    user = User.objects.get(id = request.user.id)
+    city = City.objects.get(id = city_id)
+    cities = City.objects.all()
+    posts = Post.objects.filter(city=city).order_by('-id')
+
+    if request.method == 'POST':
+        post_form = PostForm(request.POST, request.FILES)
+        if post_form.is_valid():
+            new_post = post_form.save(commit=False)
+            new_post.user = request.user
+            new_post.city = city
+            new_post.save()
+            messages.success(request, f'Successfully created post titled: {new_post.title}!')
+            return redirect('city_detail', city_id)
+    else:
+        form = PostForm()
+        context = {
+            'city': city,
+            'posts': posts,
+            'form': form,
+            'cities': cities
+        }
+        return render(request, 'cities/detail.html', context)
 
 # ----------------------- Comment Routes
 @login_required
