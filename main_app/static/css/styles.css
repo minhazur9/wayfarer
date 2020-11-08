@@ -144,6 +144,8 @@ a {
     /* justify-content: space-evenly; */
     justify-content: flex-start;
     text-align: center;
+    height: 98vh;
+    overflow-y: auto;
 }
 
 .post-link {
@@ -151,8 +153,7 @@ a {
 }
 
 .all-cities-container a {
-    color: black;
-    
+    color: black;   
 }
 
 .row .col.s12.current-city-container {
@@ -301,13 +302,14 @@ a {
     margin-bottom: 2vh;
 }
 
-
 .comments-container {
     background-color: var(--secondary-color);
     border: 5px solid #F9F9F9;
     padding: 2vh;
     height: 100vh;
     color: black;
+    overflow-y: auto;
+    
 }
 
 .comment-content {
