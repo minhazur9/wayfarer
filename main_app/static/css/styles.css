@@ -583,4 +583,26 @@ p span{
     .all-cities-card-title {
         font-size: 25px;
     }
+
+    .post__image{
+        width: 100%;
+        height: auto;
+    }
 } 
+
+@media only screen and (max-width: 766px){
+    .post-container{
+        min-height: 120vh;
+    }
+    .post-comments{
+        margin: 0;
+        margin-top: 1em;
+        padding: 0;
+    }
+    .edit-btn{
+        justify-content: space-around;
+    }
+    #confirm-delete{
+        width: 100%;
+    }
+}
