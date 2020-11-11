@@ -16,6 +16,21 @@ body {
 main {
     flex: 1 0 auto;
 }
+/* ---------------------------------------------------
+                     SIGNUP LOGIN                
+--------------------------------------------------- */
+
+.all-purpose-container ul{
+    background: whitesmoke;
+    border: gray 1px solid;
+    padding: 20px;
+    font-size: .8rem;
+    width: 100%;
+}
+ .all-purpose-container span{
+     font-style: italic;
+     color: rgba(200,200,200,.8);
+ }
 
 .all-purpose-container{
     margin: 0 auto;
@@ -55,7 +70,7 @@ nav {
     padding-top: 2vh;
     position: relative;
     color: black;
-    top: 20vh;
+    margin-top: 5vh;
 }
 .right {
     padding-bottom: 2vh;
@@ -144,7 +159,7 @@ a {
     /* justify-content: space-evenly; */
     justify-content: flex-start;
     text-align: center;
-    height: 98vh;
+    min-height: 98vh;
     overflow-y: auto;
 }
 
@@ -247,6 +262,9 @@ a {
     color: #9E9E9E;
 }
 
+#confirm-delete{
+    width: 100%;
+}
 /* .post-card-container a{
     background-color: var(--accent-color); !important;
 } */
@@ -266,7 +284,7 @@ a {
 }
 
 .all-cities-card-title {
-    color: var(--primary-color) !important;
+    color: black
 }
 
 .card-stacked {
@@ -490,7 +508,7 @@ a {
 /* BOTTOM HALF */
 .landing-grid{
     text-align: center;
-    height: 35vh;
+    min-height: 35vh;
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
@@ -579,8 +597,65 @@ p span{
     margin-top: 10vh;
 }
 
+
 @media only screen and (max-width: 900px) {
     .all-cities-card-title {
         font-size: 25px;
     }
+
+    .post__image{
+        width: 100%;
+        height: auto;
+    }
 } 
+
+@media only screen and (max-width: 766px){
+    .edit-btn{
+        justify-content: space-around;
+    }
+    .post-container{
+        min-height: 120vh;
+    }
+    .post-comments{
+        margin: 0;
+        margin-top: 1em;
+        padding: 0;
+    }
+
+    .city-title-all-cities{
+        font-size: 25px;
+    }
+    .city-detail-container{
+        order: 1;
+    }
+    .all-cities-container{
+        order: 2;
+        overflow: visible;
+    }
+
+    .dashboard-card-grid{
+        flex-direction: column;
+    }
+    .card-action .card-content{
+        padding: 0;
+    }
+    .dashboard-card-left{
+        order: 2;
+        margin-top: 2em;
+        margin-bottom: 2em;
+
+    }
+    .dashboard-card-right{
+        order: 1;
+    }
+    .dashboard-prof-img{
+        width: 100%;
+        height: auto;
+    }
+    .edit_profile_container{
+        padding: 5px;
+    }
+    p a{
+        font-size: 11px;
+    }
+}

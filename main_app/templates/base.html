@@ -21,12 +21,12 @@
     {% block content %}
     {% endblock content %}
 </main>
+{% include './partials/footer.html' %}
 </body>
-    <script defer>
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems);
-        });
+<script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+    });
     </script>
-    {% include './partials/footer.html' %}
 </html>

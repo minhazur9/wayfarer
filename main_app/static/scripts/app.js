@@ -126,12 +126,14 @@ if(addComment) {
 addComment.addEventListener('click', () => {
     addComment.classList.toggle('hidden');
     commentForm.classList.toggle('hidden');
+    editComment.classList.remove('hidden');
 })
 
 cancelComment.addEventListener('click', () => {
     commentForm.querySelector('textarea').value = "";
     commentForm.classList.toggle('hidden');
     addComment.classList.toggle('hidden');
+    editComment.classList.remove('hidden');
 
 
 })
