@@ -16,6 +16,21 @@ body {
 main {
     flex: 1 0 auto;
 }
+/* ---------------------------------------------------
+                     SIGNUP LOGIN                
+--------------------------------------------------- */
+
+.all-purpose-container ul{
+    background: whitesmoke;
+    border: gray 1px solid;
+    padding: 20px;
+    font-size: .8rem;
+    width: 100%;
+}
+ .all-purpose-container span{
+     font-style: italic;
+     color: rgba(200,200,200,.8);
+ }
 
 .all-purpose-container{
     margin: 0 auto;
