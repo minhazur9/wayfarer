@@ -633,4 +633,29 @@ p span{
         overflow: visible;
     }
 
+    .dashboard-card-grid{
+        flex-direction: column;
+    }
+    .card-action .card-content{
+        padding: 0;
+    }
+    .dashboard-card-left{
+        order: 2;
+        margin-top: 2em;
+        margin-bottom: 2em;
+
+    }
+    .dashboard-card-right{
+        order: 1;
+    }
+    .dashboard-prof-img{
+        width: 100%;
+        height: auto;
+    }
+    .edit_profile_container{
+        padding: 5px;
+    }
+    p a{
+        font-size: 11px;
+    }
 }
