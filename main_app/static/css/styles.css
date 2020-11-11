@@ -55,7 +55,7 @@ nav {
     padding-top: 2vh;
     position: relative;
     color: black;
-    top: 20vh;
+    margin-top: 5vh;
 }
 .right {
     padding-bottom: 2vh;
@@ -144,7 +144,7 @@ a {
     /* justify-content: space-evenly; */
     justify-content: flex-start;
     text-align: center;
-    height: 98vh;
+    min-height: 98vh;
     overflow-y: auto;
 }
 
@@ -247,6 +247,9 @@ a {
     color: #9E9E9E;
 }
 
+#confirm-delete{
+    width: 100%;
+}
 /* .post-card-container a{
     background-color: var(--accent-color); !important;
 } */
@@ -266,7 +269,7 @@ a {
 }
 
 .all-cities-card-title {
-    color: var(--primary-color) !important;
+    color: black
 }
 
 .card-stacked {
@@ -490,7 +493,7 @@ a {
 /* BOTTOM HALF */
 .landing-grid{
     text-align: center;
-    height: 35vh;
+    min-height: 35vh;
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
@@ -579,6 +582,7 @@ p span{
     margin-top: 10vh;
 }
 
+
 @media only screen and (max-width: 900px) {
     .all-cities-card-title {
         font-size: 25px;
@@ -591,6 +595,9 @@ p span{
 } 
 
 @media only screen and (max-width: 766px){
+    .edit-btn{
+        justify-content: space-around;
+    }
     .post-container{
         min-height: 120vh;
     }
@@ -599,10 +606,16 @@ p span{
         margin-top: 1em;
         padding: 0;
     }
-    .edit-btn{
-        justify-content: space-around;
+
+    .city-title-all-cities{
+        font-size: 25px;
     }
-    #confirm-delete{
-        width: 100%;
+    .city-detail-container{
+        order: 1;
     }
+    .all-cities-container{
+        order: 2;
+        overflow: visible;
+    }
+
 }
