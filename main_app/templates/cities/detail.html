@@ -9,7 +9,7 @@
 
     <div class="all-cities-container col s12 m12 l5">
         <h3>Cities</h3>
-        {% for city in cities %}
+        {% for city in cities|dictsort:'city_name' %}
         <div class="all-cities-cards">
             <a href="{% url 'city_detail' city.id %}">
                 <div class="card horizontal row hoverable">
