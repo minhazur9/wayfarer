@@ -580,12 +580,16 @@ p span{
     justify-content: center;
 }
 .dashboard-img-container a{
-    width: 300px;
     display: block;
 }
 
 .dashboard-img-container h4{
     text-align: center;
+}
+
+.my-profile-edit-btn{
+    width: 100%;
+    margin-right: 0;
 }
 
 
