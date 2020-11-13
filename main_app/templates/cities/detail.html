@@ -12,7 +12,7 @@
         {% for city in cities %}
         <div class="all-cities-cards">
             <a href="{% url 'city_detail' city.id %}">
-                <div class="card horizontal row">
+                <div class="card horizontal row hoverable">
                     <img class="card-image col l5 all-cities-image" src="{{city.city_image}}" alt="" class="container sm">
                     <h3 class="card-content all-cities-card-title col l7">{{city.city_name}}</h3>
                 </div>
