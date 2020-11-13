@@ -261,6 +261,14 @@ a {
     color: #9E9E9E;
 }
 
+textarea:hover,
+textarea:active,
+textarea:focus
+{
+    outline: 1px solid var(--accent-color);
+    -webkit-appearance: none;
+}
+
 #confirm-delete{
     width: 100%;
 }
