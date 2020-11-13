@@ -98,11 +98,46 @@ a {
     color: var(--accent-color);
 }
 
- .about-img {
-    max-height: 12rem;
-}   
 
+/* .about-cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
 
+.about-flex {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+}
+
+.about-flex-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-flex-card p {
+    color: #9E9E9E;
+}
+
+.about-pic-background {
+    width: 150px !important;
+    min-width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin-right: 2rem;
+    border: 2px solid var(--primary-color);
+    background-image: url('https://i.imgur.com/aiCNFX0.jpg');
+    background-size: cover;
+}
+.about-flex img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin-right: 2rem;
+    border: 2px solid var(--primary-color);
+}
 /* ---------------------------------------------------
                     ALL CITIES PAGE                
 --------------------------------------------------- */
