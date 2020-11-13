@@ -156,7 +156,6 @@ a {
     flex: 1 1 20em;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
     justify-content: flex-start;
     text-align: center;
     min-height: 98vh;
@@ -265,9 +264,6 @@ a {
 #confirm-delete{
     width: 100%;
 }
-/* .post-card-container a{
-    background-color: var(--accent-color); !important;
-} */
 
 .all-cities-image {
     padding: 10px !important;
