@@ -5,7 +5,7 @@ Edit Post
 {% block content %}
 <div class="all-purpose-container container card">
 <div class="container">
-    <h1>{{post.title}}</h1>
+    <h1 class="post-description-text">{{post.title}}</h1>
     <div class="profile-card">
         <form method="POST">
             {% csrf_token %}

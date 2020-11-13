@@ -98,11 +98,46 @@ a {
     color: var(--accent-color);
 }
 
- .about-img {
-    max-height: 12rem;
-}   
 
+/* .about-cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
 
+.about-flex {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+}
+
+.about-flex-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-flex-card p {
+    color: #9E9E9E;
+}
+
+.about-pic-background {
+    width: 150px !important;
+    min-width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin-right: 2rem;
+    border: 2px solid var(--primary-color);
+    background-image: url('https://i.imgur.com/aiCNFX0.jpg');
+    background-size: cover;
+}
+.about-flex img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin-right: 2rem;
+    border: 2px solid var(--primary-color);
+}
 /* ---------------------------------------------------
                     ALL CITIES PAGE                
 --------------------------------------------------- */
@@ -156,7 +191,6 @@ a {
     flex: 1 1 20em;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
     justify-content: flex-start;
     text-align: center;
     min-height: 98vh;
@@ -262,12 +296,17 @@ a {
     color: #9E9E9E;
 }
 
+textarea:hover,
+textarea:active,
+textarea:focus
+{
+    outline: 1px solid var(--accent-color);
+    -webkit-appearance: none;
+}
+
 #confirm-delete{
     width: 100%;
 }
-/* .post-card-container a{
-    background-color: var(--accent-color); !important;
-} */
 
 .all-cities-image {
     padding: 10px !important;
@@ -312,6 +351,7 @@ a {
 
 .post-title {
     color: white;
+    overflow: auto;
 }
 
 .post-content {
@@ -575,12 +615,16 @@ p span{
     justify-content: center;
 }
 .dashboard-img-container a{
-    width: 300px;
     display: block;
 }
 
 .dashboard-img-container h4{
     text-align: center;
+}
+
+.my-profile-edit-btn{
+    width: 100%;
+    margin-right: 0;
 }
 
 

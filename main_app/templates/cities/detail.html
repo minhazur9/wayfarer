@@ -9,10 +9,10 @@
 
     <div class="all-cities-container col s12 m12 l5">
         <h3>Cities</h3>
-        {% for city in cities %}
+        {% for city in cities|dictsort:'city_name' %}
         <div class="all-cities-cards">
             <a href="{% url 'city_detail' city.id %}">
-                <div class="card horizontal row">
+                <div class="card horizontal row hoverable">
                     <img class="card-image col l5 all-cities-image" src="{{city.city_image}}" alt="" class="container sm">
                     <h3 class="card-content all-cities-card-title col l7">{{city.city_name}}</h3>
                 </div>
@@ -50,11 +50,10 @@
                     {% else %}    
                         <img class="post__image" width="200px" height="200px" src="{% static 'images/default_post_img.png' %}" onerror="this.src='{% static 'images/default_post_img.png' %}';">
                     {% endif %}
-                        <!-- CHANGE THIS TO POST IMG -->
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <h4 class="post-title-card">{{post.title}}</h4>
+                            <h4 class="post-title-card truncate">{{post.title}}</h4>
                             <div class="post-author-container">
                             <h6>By:</h6>
                                 <a class="post-link" href="{% url 'profile_detail' post.user.username %}">    

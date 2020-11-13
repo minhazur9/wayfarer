@@ -15,10 +15,10 @@ All Cities
 <section class="all-cities-page-section">
     <div class="all-cities-container container">
         <h3 class="all-cities-title"> All Cities</h3>
-        {% for city in cities %}
+        {% for city in cities|dictsort:'city_name' %}
         <div class="all-cities-cards">
         <a href="{% url 'city_detail' city.id %}">
-            <div class="card horizontal row">
+            <div class="card horizontal row hoverable">
                 <img class="card-image col l5 all-cities-image" src="{{city.city_image}}" alt="" class="container sm">
                 <h3 class="card-content col l7 city-title-all-cities">{{city.city_name}}</h3>
             </div>
