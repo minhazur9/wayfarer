@@ -33,7 +33,6 @@
                             <form action="{% url 'delete_post' post.id %}" class=" delete-form" method="post">
                             <button id="confirm-delete" class="btn red edit-comment">Delete Post</button>
                                 {% csrf_token %}
-                                {% comment %} <button type="submit" class="btn red edit-comment">Click to Confirm Deletion</button> {% endcomment %}
                             </form>
                         </div>
                         {% endif %}

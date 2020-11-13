@@ -312,6 +312,7 @@ a {
 
 .post-title {
     color: white;
+    overflow: auto;
 }
 
 .post-content {
