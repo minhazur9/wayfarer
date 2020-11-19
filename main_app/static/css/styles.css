@@ -544,6 +544,11 @@ textarea:focus
     background-color: rgba(0,0,0,.75);
 }
 
+.landing-span {
+    color: var(--accent-color);
+    font-size: initial;
+    margin-left: initial;
+}
 
 /* BOTTOM HALF */
 .landing-grid{
