@@ -6,14 +6,14 @@
 
 ## User Stories
 
-**A user can** view a Carousel on the homepage that shows all available cities.
-**A user can** Login or Signup freely.
-**A user should be able to:** Create posts about cities.
-**A user can optionally** upload a photo for their post. 
-**A user can** edit details about their profile, including current location and profile picture.
-**A user will see** A default picture for a post or profile if they do not upload one.
-**A user can:** Comment on any post they want to.
-**A user will only be able to:** Edit/ Delete their own posts/comments.
+- **A user can** view a Carousel on the homepage that shows all available cities.
+- **A user can** Login or Signup freely.
+- **A user should be able to:** Create posts about cities.
+- **A user can optionally** upload a photo for their post. 
+- **A user can** edit details about their profile, including current location and profile picture.
+- **A user will see** A default picture for a post or profile if they do not upload one.
+- **A user can:** Comment on any post they want to.
+- **A user will only be able to:** Edit/ Delete their own posts/comments.
 
 
 
