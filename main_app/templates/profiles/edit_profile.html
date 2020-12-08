@@ -15,9 +15,9 @@ Edit Profile
 </form>
 <div class="dashboard-img-container col s12 m4">
 {% if user_image %}
-          <img class="dashboard-prof-img" src="{{ form.user_image.value.url}}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
+          <img class="dashboard-prof-img responsive-img" src="{{ form.user_image.value.url}}" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
   {% else %}
-        <img class="dashboard-prof-img" src="https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
+        <img class="dashboard-prof-img responsive-img" src="https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png" alt="" onerror="this.src='https://startupheretoronto.com/wp-content/uploads/2018/04/default-user-image-2.png';">
   {% endif %}
         </div>
 
