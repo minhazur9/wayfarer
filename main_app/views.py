@@ -24,6 +24,11 @@ def signup(request):
             login(request, user)
             Profile.objects.create(user=user)
             return redirect('home')
+        else:
+            error_message = 'Invalid sign up = try again'
+            form = UserCreationForm()
+            context = {'form': form, 'error_message': error_message}
+            return render(request, 'registration/signup.html', context)
     else:
         error_message = 'Invalid sign up = try again'
         form = UserCreationForm()
