@@ -1,6 +1,7 @@
 # Wayfarer
 
 **Elevator Pitch:** A travel community for users to share city-specific tips ("posts") about their favorite locations around the world.
+Live: https://wayfarer-min.herokuapp.com/
 
 ---
 
